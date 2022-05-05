@@ -1,5 +1,5 @@
 package ss01_Introduction_Java.thuc_hanh;
-public class Khai_Bao_SD_Bien {
+public class KhaiBaoSDBien {
     public static void main(String[] args) {
         int i = 10; // khai báo biến i là kiểu int có giá trị là 10
         float f = 20.5f; // Khai báo biến f có kiểu là float có giá trị là 20.5
