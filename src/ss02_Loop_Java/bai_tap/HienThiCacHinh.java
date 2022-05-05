@@ -11,7 +11,6 @@ public class HienThiCacHinh {
             System.out.println("3. Print isosceles triangle.");
             System.out.println("4. Exit.");
             System.out.println("Nhập lựa chọn của bạn ( 1 -> 4 ): ");
-            choice = input.nextInt;
 
             }
         }
