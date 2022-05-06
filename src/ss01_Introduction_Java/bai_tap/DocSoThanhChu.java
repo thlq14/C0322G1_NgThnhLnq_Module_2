@@ -43,60 +43,63 @@ public class DocSoThanhChu {
         } else {
             switch (number / 100) {
                 case 1:
-                    System.out.print("One hundred");
+                    System.out.print("One hundred ");
                     break;
                 case 2:
-                    System.out.print("Two hundred");
+                    System.out.print("Two hundred ");
                     break;
                 case 3:
-                    System.out.print("Three hundred");
+                    System.out.print("Three hundred ");
                     break;
                 case 4:
-                    System.out.print("Four hundred");
+                    System.out.print("Four hundred ");
                     break;
                 case 5:
-                    System.out.print("Five hundred");
+                    System.out.print("Five hundred ");
                     break;
                 case 6:
-                    System.out.print("Six hundred");
+                    System.out.print("Six hundred ");
                     break;
                 case 7:
-                    System.out.print("Seven hundred");
+                    System.out.print("Seven hundred ");
                     break;
                 case 8:
-                    System.out.print("Eight hundred");
+                    System.out.print("Eight hundred ");
                     break;
                 case 9:
-                    System.out.print("Nine hundred");
+                    System.out.print("Nine hundred ");
                     break;
+            }
+            if (number >= 100 && number % 100 != 0) {
+                System.out.print("and ");
             }
             switch (((number / 10) * 10) % 100) {
                 case 10:
-                    System.out.print("Ten");
+                    System.out.print("Ten ");
                     break;
                 case 20:
                     System.out.print("Twenty ");
                     break;
                 case 30:
-                    System.out.print("Thirty");
+                    System.out.print("Thirty ");
                     break;
                 case 40:
-                    System.out.print("Forty");
+                    System.out.print("Forty ");
                     break;
                 case 50:
-                    System.out.print("Fifty");
+                    System.out.print("Fifty ");
                     break;
                 case 60:
-                    System.out.print("Sixty");
+                    System.out.print("Sixty ");
                     break;
                 case 70:
-                    System.out.print("Seventy");
+                    System.out.print("Seventy ");
                     break;
                 case 80:
-                    System.out.print("Eighty");
+                    System.out.print("Eighty ");
                     break;
                 case 90:
-                    System.out.print("Ninety");
+                    System.out.print("Ninety ");
                     break;
             }
             switch (number % 10) {

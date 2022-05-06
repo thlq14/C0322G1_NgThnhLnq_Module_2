@@ -4,25 +4,27 @@ import java.util.Scanner;
 
 public class HienThi20SNT {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt();
+
         int count = 0;
-        int num = 4;
-        System.out.println(number + " số nguyên tố đầu tiên: ");
-        System.out.println(2 + "\n" + 3 + "\n");
-        while (count < number) {
-            boolean flag = true;
-            for (int i = 2; i < num; i++) {
-                if (num % i == 0) {
-                    flag = false;
+        int status = 1;
+        int number = 3;
+        System.out.println(20 + " số nguyên tố đầu tiên: ");
+        System.out.println(2);
+        for (int i = 2; i <= 20; ) {
+            for (int j = 2; j <= Math.sqrt(number); j++) {
+                if (number % j == 0) {
+                    status = 0;
                     break;
                 }
             }
-            if (flag) {
-                System.out.println(num + "\n");
+            if (status != 0) {
+                System.out.println(number);
+                i++;
                 count++;
             }
-            num++;
+            status = 1;
+            number++;
         }
     }
 }
+

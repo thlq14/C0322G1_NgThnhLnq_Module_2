@@ -23,9 +23,9 @@ public class HienThiCacHinh {
                     int height = input.nextInt();
                     for (int i = 0; i < width; i++) {
                         for (int j = 0; j < height; j++) {
-                            System.out.println("*");
+                            System.out.print("*");
                         }
-                        System.out.println("&nbsp&nbsp");
+                        System.out.print("\n");
                     }
                     break;
                 case 2:
@@ -49,7 +49,7 @@ public class HienThiCacHinh {
                     System.out.println("Triangle bottom-right:");
                     for (int i = 1; i <= heightST; i++) {
                         for (int k = heightST; k > i; k--) {
-                            System.out.print("&nbsp&nbsp");
+                            System.out.print(" ");
                         }
                         for (int j = 1; j <= i; j++) {
                             System.out.print("*");
@@ -63,7 +63,7 @@ public class HienThiCacHinh {
                         }
                         System.out.print("\n");
                         for (int k = 1; k <= i; k++) {
-                            System.out.print("&nbsp&nbsp");
+                            System.out.print(" ");
                         }
                     }
                     break;
@@ -73,10 +73,10 @@ public class HienThiCacHinh {
                     int heightIT = input.nextInt();
                     for (int i = 1; i < heightIT; i++) {
                         for (int j = heightIT; j > i; j--) {
-                            System.out.println("&nbsp&nbsp");
+                            System.out.println("*");
                         }
                         for (int k = 1; k <= i; k++) {
-                            System.out.println("&nbsp&nbsp");
+                            System.out.println(" ");
                         }
                         System.out.println("\n");
                     }
