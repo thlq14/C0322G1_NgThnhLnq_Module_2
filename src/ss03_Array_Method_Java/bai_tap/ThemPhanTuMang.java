@@ -30,8 +30,4 @@ public class ThemPhanTuMang {
         int indexInsPos = scanner.nextInt();
         }
 
-//        System.out.print("Deleted Array: ");
-//        for (int j = 0; j < array.length; j++) {
-//            System.out.print(array[j] + "\t");
-//        }
     }

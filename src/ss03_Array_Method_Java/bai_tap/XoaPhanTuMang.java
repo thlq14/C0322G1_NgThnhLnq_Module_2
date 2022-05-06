@@ -8,7 +8,7 @@ public class XoaPhanTuMang {
         int[] array;
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("Enter a size: ");
+            System.out.print("Enter a size: ");
             size = scanner.nextInt();
             if (size > 20)
                 System.out.println("Size does not exceed 20");
@@ -24,7 +24,7 @@ public class XoaPhanTuMang {
         for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + "\t");
         }
-        System.out.print("Delete Value: ");
+        System.out.print("\n" + "Delete Value: ");
         int indexDel = scanner.nextInt();
         for (int j = 0; j < array.length; j++) {
             if (indexDel == array[j] && indexDel != array[array.length - 1]) {
