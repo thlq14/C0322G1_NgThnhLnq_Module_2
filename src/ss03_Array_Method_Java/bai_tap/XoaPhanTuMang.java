@@ -20,21 +20,21 @@ public class XoaPhanTuMang {
             array[i] = scanner.nextInt();
             i++;
         }
-        System.out.print("Elements in array: ");
+        System.out.println("Elements in array: ");
         for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + "\t");
         }
         System.out.print("Delete Value: ");
-        int indexDelete = scanner.nextInt();
+        int indexDel = scanner.nextInt();
         for (int j = 0; j < array.length; j++) {
-            if (indexDelete == array[j] && indexDelete != array[array.length - 1]) {
+            if (indexDel == array[j] && indexDel != array[array.length - 1]) {
                 array[j] = array[j + 1];
                 for (int k = j + 1; k < array.length - 1; k++) {
                     array[k] = array[k + 1];
                 }
                 array[array.length - 1] = 0;
                 j--;
-            } else if (indexDelete == array[array.length - 1]) {
+            } else if (indexDel == array[array.length - 1]) {
                 array[array.length - 1] = 0;
             }
         }
