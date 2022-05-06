@@ -8,7 +8,7 @@ public class XoaPhanTuMang {
         int[] array;
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.print("Enter a size:");
+            System.out.println("Enter a size: ");
             size = scanner.nextInt();
             if (size > 20)
                 System.out.println("Size does not exceed 20");
@@ -20,21 +20,25 @@ public class XoaPhanTuMang {
             array[i] = scanner.nextInt();
             i++;
         }
-        System.out.printf("Elements in array: ");
+        System.out.print("Elements in array: ");
         for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + "\t");
         }
-        System.out.print("\n" + "Delete Element: ");
+        System.out.print("Delete Value: ");
         int indexDelete = scanner.nextInt();
         for (int j = 0; j < array.length; j++) {
             if (indexDelete == array[j] && indexDelete != array[array.length - 1]) {
                 array[j] = array[j + 1];
-                array[j + 1] = 0;
+                for (int k = j + 1; k < array.length - 1; k++) {
+                    array[k] = array[k + 1];
+                }
+                array[array.length - 1] = 0;
+                j--;
             } else if (indexDelete == array[array.length - 1]) {
                 array[array.length - 1] = 0;
             }
         }
-        System.out.print("Deleted Array: ");
+        System.out.print("New Value: ");
         for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + "\t");
         }

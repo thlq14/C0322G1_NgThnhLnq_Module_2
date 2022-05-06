@@ -6,23 +6,23 @@ public class HienThi20SNT {
     public static void main(String[] args) {
 
         int count = 0;
-        int status = 1;
         int number = 3;
+        boolean flag = true;
         System.out.println(20 + " số nguyên tố đầu tiên: ");
         System.out.println(2);
         for (int i = 2; i <= 20; ) {
             for (int j = 2; j <= Math.sqrt(number); j++) {
                 if (number % j == 0) {
-                    status = 0;
+                    flag = false;
                     break;
                 }
             }
-            if (status != 0) {
+            if (!flag) {
                 System.out.println(number);
                 i++;
                 count++;
             }
-            status = 1;
+            flag = true;
             number++;
         }
     }

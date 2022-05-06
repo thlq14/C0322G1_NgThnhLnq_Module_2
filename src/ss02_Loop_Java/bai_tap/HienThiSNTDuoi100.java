@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class HienThiSNTDuoi100 {
     public static void main(String[] args) {
         int num;
-        int status = 1;
         int number = 3;
+        boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hiển thị các số nguyên tố nhỏ hơn: ");
         num = scanner.nextInt();
@@ -17,15 +17,15 @@ public class HienThiSNTDuoi100 {
         for (int i = 2; i <= num; i++) {
             for (int j = 2; j <= Math.sqrt(number); j++) {
                 if (number % j == 0) {
-                    status = 0;
+                    flag = false;
                     break;
                 }
             }
-            if (status != 0) {
+            if (!flag) {
                 System.out.println(number);
                 i++;
             }
-            status = 1;
+            flag = false;
             number++;
         }
     }
