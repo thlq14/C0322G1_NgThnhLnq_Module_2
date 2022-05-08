@@ -1,6 +1,6 @@
 package ss02_Loop_Java.bai_tap;
 
-public class HienThiSNTDuoi100 {
+public class ShowPrimeLess100 {
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
             boolean flag = true;

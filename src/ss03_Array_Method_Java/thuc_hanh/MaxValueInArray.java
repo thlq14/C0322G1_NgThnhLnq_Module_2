@@ -1,6 +1,6 @@
 package ss03_Array_Method_Java.thuc_hanh;
 import java.util.Scanner;
-public class GiaTriLonNhat {
+public class MaxValueInArray {
     public static void main(String[] args) {
         int size;
         int[] array;

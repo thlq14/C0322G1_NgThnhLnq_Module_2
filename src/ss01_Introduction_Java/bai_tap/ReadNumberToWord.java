@@ -1,6 +1,6 @@
 package ss01_Introduction_Java.bai_tap;
 import java.util.Scanner;
-public class DocSoThanhChu {
+public class ReadNumberToWord {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập số cần đọc (0 - 999): ");

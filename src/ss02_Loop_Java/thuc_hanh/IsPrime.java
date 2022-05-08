@@ -2,7 +2,7 @@ package ss02_Loop_Java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class KiemTraSNT {
+public class IsPrime {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập số cần kiểm tra: ");

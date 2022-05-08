@@ -2,7 +2,7 @@ package ss01_Introduction_Java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class SoNgayTrongThang {
+public class DaysInMonth {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Which month that you want to count days? ");

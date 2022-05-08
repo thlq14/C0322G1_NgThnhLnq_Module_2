@@ -2,7 +2,7 @@ package ss02_Loop_Java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class UocChungLonNhat {
+public class GreateCommonFactor {
     public static void main(String[] args) {
         int a;
         int b;

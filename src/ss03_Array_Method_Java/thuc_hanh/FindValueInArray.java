@@ -1,6 +1,6 @@
 package ss03_Array_Method_Java.thuc_hanh;
 import java.util.Scanner;
-public class GiaTriTrongMang {
+public class FindValueInArray {
     public static void main(String[] args) {
         String[] students = {"Christian", "Michael", "Camila", "Sienna", "Tanya",
                 "Connor", "Zachariah", "Mallory", "Zoe", "Emily"};

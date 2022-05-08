@@ -1,5 +1,5 @@
 package ss03_Array_Method_Java.thuc_hanh;
-public class GiaTriNhoNhat {
+public class MinValueInArray {
     public static void main(String[] args) {
         int[] arr = {4, 12, 7, 8, 2, 6, 9};
         int index = minValue(arr);

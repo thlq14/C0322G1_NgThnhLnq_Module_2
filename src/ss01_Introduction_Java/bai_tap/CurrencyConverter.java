@@ -1,6 +1,6 @@
 package ss01_Introduction_Java.bai_tap;
 import java.util.Scanner;
-public class ChuyenDoiTienTe {
+public class CurrencyConverter {
     public static void main(String[] args) {
         double usd;
         Scanner sc = new Scanner(System.in);

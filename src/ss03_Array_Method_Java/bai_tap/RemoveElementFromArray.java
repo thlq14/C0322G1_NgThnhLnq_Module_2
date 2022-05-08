@@ -1,8 +1,8 @@
-package ss03_Array_Method_Java.thuc_hanh;
+package ss03_Array_Method_Java.bai_tap;
 
 import java.util.Scanner;
 
-public class DaoNguocMang {
+public class RemoveElementFromArray {
     public static void main(String[] args) {
         int size;
         int[] array;
@@ -20,16 +20,25 @@ public class DaoNguocMang {
             array[i] = scanner.nextInt();
             i++;
         }
-        System.out.printf("%-20s%s", "Elements in array: ", "");
+        System.out.println("Elements in array: ");
         for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + "\t");
         }
-        for (int j = 0; j < array.length / 2; j++) {
-            int temp = array[j];
-            array[j] = array[size - 1 - j];
-            array[size - 1 - j] = temp;
+        System.out.print("\n" + "Delete Value: ");
+        int indexDel = scanner.nextInt();
+        for (int j = 0; j < array.length; j++) {
+            if (indexDel == array[j] && indexDel != array[array.length - 1]) {
+                array[j] = array[j + 1];
+                for (int k = j + 1; k < array.length - 1; k++) {
+                    array[k] = array[k + 1];
+                }
+                array[array.length - 1] = 0;
+                j--;
+            } else if (indexDel == array[array.length - 1]) {
+                array[array.length - 1] = 0;
+            }
         }
-        System.out.printf("\n%-20s%s", "Reverse array: ", "");
+        System.out.print("New Value: ");
         for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + "\t");
         }

@@ -2,7 +2,7 @@ package ss03_Array_Method_Java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class ChuyenDoiNhietDo {
+public class ConvertTemperature {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         double fahrenheit;

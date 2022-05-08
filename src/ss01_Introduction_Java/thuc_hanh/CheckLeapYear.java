@@ -2,7 +2,7 @@ package ss01_Introduction_Java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class KiemTraNamNhuan {
+public class CheckLeapYear {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int year;

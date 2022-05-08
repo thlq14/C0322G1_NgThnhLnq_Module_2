@@ -1,6 +1,6 @@
 package ss02_Loop_Java.bai_tap;
 
-public class HienThi20SNT {
+public class Show20Primes {
     public static void main(String[] args) {
         int count = 0;
         int number = 0;

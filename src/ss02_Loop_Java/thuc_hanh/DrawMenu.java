@@ -1,6 +1,6 @@
 package ss02_Loop_Java.thuc_hanh;
 import java.util.Scanner;
-public class MenuUngDung {
+public class DrawMenu {
     public static void main(String[] args) {
         int choice = -1;
         Scanner input = new Scanner(System.in);

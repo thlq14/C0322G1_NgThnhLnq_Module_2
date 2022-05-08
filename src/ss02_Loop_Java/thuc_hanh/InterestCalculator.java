@@ -1,6 +1,6 @@
 package ss02_Loop_Java.thuc_hanh;
 import java.util.Scanner;
-public class LaiChoVay {
+public class InterestCalculator {
     public static void main(String[] args) {
         double money = 1.0;
         int month = 1;
