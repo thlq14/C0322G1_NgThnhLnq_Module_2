@@ -8,6 +8,7 @@ public class Fan {
     private boolean on = false;
     private String color = "blue";
     private double radius = 5;
+
     public int getSLOW() {
         return SLOW;
     }
@@ -51,14 +52,17 @@ public class Fan {
     public void setRadius(double radius) {
         this.radius = radius;
     }
+
     public Fan() {
     }
+
     public Fan(int speed, boolean on, String color, double radius) {
         this.speed = speed;
         this.on = on;
         this.color = color;
         this.radius = radius;
     }
+
     public String toString() {
         String state = "";
         if (this.isOn()) {
@@ -72,12 +76,13 @@ public class Fan {
         return state;
     }
 }
-class Test {
+
+class TestFan {
     public static void main(String[] args) {
-        Fan fan1 = new Fan (3, true, "yellow" , 10);
-        Fan fan2 = new Fan (2, false, "blue", 5);
-        System.out.println(fan1.toString());
-        System.out.println(fan2.toString());
+        Fan fan1 = new Fan(3, true, "yellow", 10);
+        Fan fan2 = new Fan(2, false, "blue", 5);
+        System.out.println(fan1);
+        System.out.println(fan2);
     }
 }
 

@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class AddElementToArray {
     public static void main(String[] args) {
-        int size;
         int[] array = new int[5];
         Scanner scanner = new Scanner(System.in);
 
