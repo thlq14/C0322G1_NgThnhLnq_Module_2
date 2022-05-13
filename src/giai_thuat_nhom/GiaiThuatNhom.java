@@ -5,9 +5,8 @@ import java.util.Scanner;
 public class GiaiThuatNhom {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Input the the Height: ");
+        System.out.print("Input the the Height: ");
         int height = scanner.nextInt();
-        int count = 0;
         for (int i = 1; i < height; i++) {
             for (int j = -height; j <= height; j++) {
                 if (j == i || i == -j) {

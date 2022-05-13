@@ -13,6 +13,7 @@ public class Rectangle extends Shape {
         this.width = width;
         this.length = length;
     }
+
     public Rectangle(double width, double length, String color, boolean filled) {
         super(color, filled);
         this.width = width;
@@ -34,9 +35,11 @@ public class Rectangle extends Shape {
     public void setLength(double length) {
         this.length = length;
     }
+
     public double getArea() {
         return width * this.length;
     }
+
     public double getPerimeter() {
         return 2 * (width + this.length);
     }

@@ -1,8 +1,6 @@
-package ss07_AbstractClass_Interface.thuc_hanh.interface_comparator;
+package ss07_AbstractClass_Interface.bai_tap.interface_resizeable;
 
-import ss06_Inheritance.thuc_hanh.geometric_objects.Shape;
-
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -52,5 +50,10 @@ public class Rectangle extends Shape {
                 + getLength()
                 + ", which is a Subclass of "
                 + super.toString();
+    }
+
+    public void resize(double percent) {
+        setLength(getLength() * percent / 100);
+        setWidth(getWidth() * percent / 100);
     }
 }

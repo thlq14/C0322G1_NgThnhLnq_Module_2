@@ -1,12 +1,4 @@
-package ss07_AbstractClass_Interface.thuc_hanh.interface_edible.abstract_andInterface_tests;
-
-import ss07_AbstractClass_Interface.thuc_hanh.interface_edible.animals.Animal;
-import ss07_AbstractClass_Interface.thuc_hanh.interface_edible.animals.Chicken;
-import ss07_AbstractClass_Interface.thuc_hanh.interface_edible.animals.Tiger;
-import ss07_AbstractClass_Interface.thuc_hanh.interface_edible.edible.Edible;
-import ss07_AbstractClass_Interface.thuc_hanh.interface_edible.fruit.Apple;
-import ss07_AbstractClass_Interface.thuc_hanh.interface_edible.fruit.Fruit;
-import ss07_AbstractClass_Interface.thuc_hanh.interface_edible.fruit.Orange;
+package ss07_AbstractClass_Interface.thuc_hanh.interface_edible;
 
 public class AbstractAndInterfaceTests {
     public static void main(String[] args) {

@@ -4,7 +4,7 @@ public class Circle {
     private double radius = 3.0;
     private String color = "black";
 
-    public Circle(){
+    public Circle() {
     }
 
     public Circle(double radius, String color) {
@@ -31,6 +31,7 @@ public class Circle {
     public void setColor(String color) {
         this.color = color;
     }
+
     public double getArea() {
         return radius * radius * Math.PI;
     }

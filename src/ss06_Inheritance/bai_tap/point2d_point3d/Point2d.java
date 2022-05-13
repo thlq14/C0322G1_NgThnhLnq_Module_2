@@ -29,17 +29,19 @@ public class Point2d {
     public void setY(float y) {
         this.y = y;
     }
+
     public void setXY(float x, float y) {
         this.x = x;
         this.y = y;
     }
+
     public String getXY() {
-        float[] arr = {this.x,this.y};
+        float[] arr = {this.x, this.y};
         return Arrays.toString(arr);
     }
 
     @Override
     public String toString() {
-        return "Point2d: (x, y) = (" + this.getX() + ", " + this.getY() + ").";
+        return "(" + this.getX() + ", " + this.getY() + ")";
     }
 }

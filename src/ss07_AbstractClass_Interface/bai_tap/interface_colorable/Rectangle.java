@@ -1,6 +1,4 @@
-package ss07_AbstractClass_Interface.thuc_hanh.interface_comparator;
-
-import ss06_Inheritance.thuc_hanh.geometric_objects.Shape;
+package ss07_AbstractClass_Interface.bai_tap.interface_colorable;
 
 public class Rectangle extends Shape {
     private double width = 1.0;
@@ -37,11 +35,11 @@ public class Rectangle extends Shape {
     }
 
     public double getArea() {
-        return width * this.length;
+        return this.width * this.length;
     }
 
     public double getPerimeter() {
-        return 2 * (width + this.length);
+        return 2 * (this.width + this.length);
     }
 
     @Override
@@ -49,8 +47,8 @@ public class Rectangle extends Shape {
         return "A Rectangle with Width "
                 + getWidth()
                 + " and Length "
-                + getLength()
-                + ", which is a Subclass of "
-                + super.toString();
+                + getLength();
+//                + ", which is a Subclass of "
+//                + super.toString();
     }
 }
