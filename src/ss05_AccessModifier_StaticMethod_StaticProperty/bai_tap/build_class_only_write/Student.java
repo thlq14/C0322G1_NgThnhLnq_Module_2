@@ -3,8 +3,10 @@ package ss05_AccessModifier_StaticMethod_StaticProperty.bai_tap.build_class_only
 public class Student {
     private String name;
     private String classes;
+
     public Student() {
     }
+
     public Student(String name, String classes) {
         this.name = name;
         this.classes = classes;

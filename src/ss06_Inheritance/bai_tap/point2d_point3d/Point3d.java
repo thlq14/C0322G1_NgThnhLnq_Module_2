@@ -1,7 +1,5 @@
 package ss06_Inheritance.bai_tap.point2d_point3d;
 
-import ss06_Inheritance.bai_tap.point_moveablepoint.MovablePoint;
-
 import java.util.Arrays;
 
 public class Point3d extends Point2d {

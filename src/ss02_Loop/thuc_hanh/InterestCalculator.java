@@ -1,5 +1,7 @@
 package ss02_Loop.thuc_hanh;
+
 import java.util.Scanner;
+
 public class InterestCalculator {
     public static void main(String[] args) {
         double money = 1.0;

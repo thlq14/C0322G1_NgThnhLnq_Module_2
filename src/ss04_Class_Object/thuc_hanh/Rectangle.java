@@ -21,6 +21,7 @@ public class Rectangle {
     public String display() {
         return "Rectangle{" + "width=" + width + ", height=" + height + "}";
     }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the width:");

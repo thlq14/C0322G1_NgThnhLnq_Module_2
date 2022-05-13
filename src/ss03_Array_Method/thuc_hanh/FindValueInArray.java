@@ -1,5 +1,7 @@
 package ss03_Array_Method.thuc_hanh;
+
 import java.util.Scanner;
+
 public class FindValueInArray {
     public static void main(String[] args) {
         String[] students = {"Christian", "Michael", "Camila", "Sienna", "Tanya",

@@ -1,5 +1,7 @@
 package ss03_Array_Method.bai_tap;
+
 import java.util.Scanner;
+
 public class SumNumberInSpecialColumn {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -8,9 +10,8 @@ public class SumNumberInSpecialColumn {
         System.out.print("Nhập số cột: ");
         int col = scanner.nextInt();
 
-        int[][] array2d = new int[raw][];
+        int[][] array2d = new int[raw][col];
         for (int i = 0; i < raw; i++) {
-            array2d[i] = new int[col];
             for (int j = 0; j < col; j++) {
                 System.out.print("Nhập phần tử vào mảng: " + "\t");
                 array2d[i][j] = scanner.nextInt();

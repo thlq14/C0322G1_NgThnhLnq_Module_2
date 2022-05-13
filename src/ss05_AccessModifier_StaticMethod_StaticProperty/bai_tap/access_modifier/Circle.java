@@ -7,7 +7,7 @@ public class Circle {
     public Circle() {
     }
 
-    public Circle (double radius, String color) {
+    public Circle(double radius, String color) {
         this.radius = radius;
         this.color = color;
     }
@@ -27,6 +27,7 @@ public class Circle {
     public void setColor(String color) {
         this.color = color;
     }
+
     public double getArea() {
         return (this.radius * this.radius) * Math.PI;
     }

@@ -1,5 +1,7 @@
 package ss03_Array_Method.thuc_hanh;
+
 import java.util.Scanner;
+
 public class MaxValueInArray {
     public static void main(String[] args) {
         int size;

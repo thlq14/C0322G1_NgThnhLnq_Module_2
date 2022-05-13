@@ -1,5 +1,7 @@
 package ss01_Introduction.bai_tap;
+
 import java.util.Scanner;
+
 public class CurrencyConverter {
     public static void main(String[] args) {
         double usd;
