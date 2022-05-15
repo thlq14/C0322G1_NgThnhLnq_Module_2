@@ -8,7 +8,8 @@ public class ColorableTest {
         shapes[2] = new Square(8.1);
         for (Shape item : shapes) {
             if (item instanceof Colorable) {
-                System.out.println(item + "\n" + "Diện tích: " + item.getArea() + "\n" + ((Colorable) item).howToColor());
+                System.out.println(item + "\n" + "Diện tích: " + item.getArea());
+                ((Colorable) item).howToColor();
             } else {
                 System.out.println(item + "\n" + "Diện tích: " + item.getArea());
             }

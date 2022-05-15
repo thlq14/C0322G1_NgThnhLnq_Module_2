@@ -1,4 +1,4 @@
-package giai_thuat_nhom;
+package _algorithm;
 
 import java.util.Scanner;
 

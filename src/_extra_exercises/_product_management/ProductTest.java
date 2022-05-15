@@ -1,4 +1,4 @@
-package _product_management;
+package _extra_exercises._product_management;
 
 import java.util.Scanner;
 

@@ -42,5 +42,8 @@ public class Square extends Rectangle implements Colorable {
 //                + ", which is a Subclass of "
 //                + super.toString();
     }
+    public void howToColor() {
+        System.out.println("Color all four sides.");
+    }
 }
 
