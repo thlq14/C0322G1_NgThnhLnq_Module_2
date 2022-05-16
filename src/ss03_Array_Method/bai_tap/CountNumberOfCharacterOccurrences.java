@@ -7,7 +7,7 @@ public class CountNumberOfCharacterOccurrences {
         Scanner scanner = new Scanner(System.in);
         String string = "dem so lan xuat hien cua ki tu chuoi";
         char[] arr = string.toCharArray();
-        System.out.println("Nhập kí tự muốn tìm: ");
+        System.out.print("Nhập kí tự muốn tìm: ");
         String str = scanner.nextLine();
         char[] array = str.toCharArray();
         int count = 0;

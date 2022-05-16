@@ -9,9 +9,8 @@ public class MaxElementArray2d {
         int raw = scanner.nextInt();
         System.out.print("Nhập số cột: ");
         int col = scanner.nextInt();
-        int[][] array2d = new int[raw][];
+        int[][] array2d = new int[raw][col];
         for (int i = 0; i < raw; i++) {
-            array2d[i] = new int[col];
             for (int j = 0; j < col; j++) {
                 System.out.print("Nhập phần tử vào mảng: " + "\t");
                 array2d[i][j] = scanner.nextInt();

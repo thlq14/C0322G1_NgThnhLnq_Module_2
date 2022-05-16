@@ -14,27 +14,27 @@ public class AddElementToArray {
             i++;
         }
         System.out.print("Elements in array: ");
-        for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + "\t");
+        for (int value : array) {
+            System.out.print(value + "\t");
         }
         System.out.print("\n" + "Insert Element: ");
-        int indexElm = scanner.nextInt();
+        int insertEle = scanner.nextInt();
         System.out.print("Insert Position: ");
-        int indexPos = scanner.nextInt();
-        if (indexPos <= -1 || indexPos >= array.length - 1) {
+        int insertPos = scanner.nextInt();
+        if (insertPos <= -1 || insertPos >= array.length - 1) {
             System.out.print("NOT insert a element into array");
         } else {
             for (int j = 0; j < array.length; j++) {
-                if (indexPos == j && indexElm != array[array.length - 1]) {
+                if (insertPos == j && insertEle != array[array.length - 1]) {
                     for (int k = array.length - 1; k > j; k--) {
                         array[k] = array[k - 1];
                     }
-                    array[j] = indexElm;
+                    array[j] = insertEle;
                 }
             }
             System.out.print("New Value: ");
-            for (int j = 0; j < array.length; j++) {
-                System.out.print(array[j] + "\t");
+            for (int k : array) {
+                System.out.print(k + "\t");
             }
         }
     }

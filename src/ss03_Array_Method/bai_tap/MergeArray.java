@@ -18,12 +18,12 @@ public class MergeArray {
             array2[i] = scanner.nextInt();
         }
         System.out.println("Array 1: ");
-        for (int i = 0; i < array1.length; i++) {
-            System.out.print(array1[i] + "\t");
+        for (int k : array1) {
+            System.out.print(k + "\t");
         }
         System.out.println("\n" + "Array 2: ");
-        for (int i = 0; i < array2.length; i++) {
-            System.out.print(array2[i] + "\t");
+        for (int k : array2) {
+            System.out.print(k + "\t");
         }
         int[] array3 = new int[array1.length + array2.length];
 
@@ -34,8 +34,8 @@ public class MergeArray {
             array3[array1.length + i] = array2[i];
         }
         System.out.println("\n" + "Array 3: ");
-        for (int j = 0; j < array3.length; j++) {
-            System.out.print(array3[j] + "\t");
+        for (int i : array3) {
+            System.out.print(i + "\t");
         }
     }
 }
