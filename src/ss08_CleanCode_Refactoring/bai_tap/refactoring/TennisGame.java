@@ -1,30 +1,25 @@
 package ss08_CleanCode_Refactoring.bai_tap.refactoring;
 
 public class TennisGame {
-    public static final String LOVEALL = "Love-All";
-    public static final String FIFTEENALL = "Fifteen-All";
-    public static final String THIRTYALL = "Thirty-All";
-    public static final String FORTYALL = "Forty-All";
-    public static final String DEUCE = "Deuce";
     public static String getScore(String player1Name, String player2Name, int score1, int score2) {
         String score = "";
         int tempScore = 0;
         if (score1 == score2) {
             switch (score1) {
                 case 0:
-                    score = LOVEALL;
+                    score = "Love-All";
                     break;
                 case 1:
-                    score = FIFTEENALL;
+                    score = "Fifteen-All";
                     break;
                 case 2:
-                    score = THIRTYALL;
+                    score = "Thirty-All";
                     break;
                 case 3:
-                    score = FORTYALL;
+                    score = "Forty-All";
                     break;
                 default:
-                    score = DEUCE;
+                    score = "Deuce";
                     break;
 
             }
