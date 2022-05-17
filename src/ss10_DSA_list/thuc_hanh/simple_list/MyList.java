@@ -1,11 +1,11 @@
-package ss10_DSA_List.thuc_hanh.simple_list;
+package ss10_DSA_list.thuc_hanh.simple_list;
 
 import java.util.Arrays;
 
 public class MyList<E> {
     private int size = 0;
     private static final int DEFAULT_CAPACITY = 10;
-    private Object elements[];
+    private Object[] elements;
 
     public MyList() {
         elements = new Object[DEFAULT_CAPACITY];

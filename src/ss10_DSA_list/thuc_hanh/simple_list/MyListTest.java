@@ -1,4 +1,4 @@
-package ss10_DSA_List.thuc_hanh.simple_list;
+package ss10_DSA_list.thuc_hanh.simple_list;
 
 public class MyListTest {
     public static void main(String[] args) {

@@ -1,5 +1,9 @@
 package _extra_exercises._person_management;
 
+import _extra_exercises.manager_mvc.model.Person;
+import _extra_exercises.manager_mvc.model.Student;
+import _extra_exercises.manager_mvc.model.Teacher;
+
 import java.util.Scanner;
 
 public class PersonTest {

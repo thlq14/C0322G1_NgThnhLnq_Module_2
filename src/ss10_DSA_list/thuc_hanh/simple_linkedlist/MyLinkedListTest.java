@@ -1,4 +1,4 @@
-package ss10_DSA_List.thuc_hanh.simple_linkedlist;
+package ss10_DSA_list.thuc_hanh.simple_linkedlist;
 
 public class MyLinkedListTest {
     public static void main(String[] args) {
