@@ -6,7 +6,6 @@ public class AddElementToArray {
     public static void main(String[] args) {
         int[] array = new int[5];
         Scanner scanner = new Scanner(System.in);
-
         int i = 0;
         while (i < array.length) {
             System.out.print("Enter element " + (i + 1) + ": ");

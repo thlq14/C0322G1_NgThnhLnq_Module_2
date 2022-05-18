@@ -48,8 +48,8 @@ public class MovablePoint extends Point {
 
     @Override
     public String toString() {
-        return "MovablePoint: (x, y) = (" + this.getX() + ", " + this.getY() +
-                "), speed = (" + this.getxSpeed() + ", " + this.getySpeed() + ").";
+        return "(" + String.format("%f, %f", this.getX(), this.getY())
+                + "), speed = (" + String.format("%f, %f", this.getxSpeed(), this.getySpeed()) + ")";
     }
 
     public MovablePoint move() {

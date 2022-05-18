@@ -42,6 +42,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point: (x, y) = (" + this.getX() + ", " + this.getY() + ").";
+        return "(" + String.format("%f, %f", this.getX(), this.getY()) + ").";
     }
 }
