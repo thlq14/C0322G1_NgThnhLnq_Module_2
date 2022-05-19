@@ -4,8 +4,8 @@ import java.util.*;
 
 public class DemergingTest {
     public static void main(String[] args) {
-        Queue<Demerging> queueNam = new LinkedList<>();
-        Queue<Demerging> queueNu = new LinkedList<>();
+        Queue<Demerging> queueMale = new LinkedList<>();
+        Queue<Demerging> queueFemale = new LinkedList<>();
         List<Demerging> personList = new ArrayList<>();
         personList.add(new Demerging("Văn F", true, 1999));
         personList.add(new Demerging("Thị J", false, 2003));
@@ -20,20 +20,20 @@ public class DemergingTest {
 
         for (Demerging item : personList) {
             if (item.isGender()) {
-                queueNam.add(item);
+                queueMale.add(item);
             } else {
-                queueNu.add(item);
+                queueFemale.add(item);
             }
         }
 
         System.out.println("List Nữ: ");
-        while (!queueNu.isEmpty()) {
-            System.out.println(queueNu.poll());
+        while (!queueFemale.isEmpty()) {
+            System.out.println(queueFemale.poll());
         }
 
         System.out.println("List Nam: ");
-        while (!queueNam.isEmpty()) {
-            System.out.println(queueNam.poll());
+        while (!queueMale.isEmpty()) {
+            System.out.println(queueMale.poll());
         }
     }
 }
