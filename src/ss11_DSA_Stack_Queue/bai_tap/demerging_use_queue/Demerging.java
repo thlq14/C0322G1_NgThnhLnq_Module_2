@@ -38,6 +38,16 @@ public class Demerging implements Comparable<Demerging> {
         this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return "Demerging {" +
+                "name = '" + name + '\'' +
+                ", gender = " + gender +
+                ", year = " + year +
+                '}';
+    }
+
+    @Override
     public int compareTo(Demerging o) {
         if (this.getYear() > o.getYear()) {
             return 1;

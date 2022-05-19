@@ -11,7 +11,6 @@ public class CountWordinString {
         String str = scanner.nextLine();
         char[] chars = str.toLowerCase().toCharArray();
         int value;
-        // abaab
         for (char item : chars) {
             if (map.containsKey(item)) {
                 value = map.get(item) + 1;

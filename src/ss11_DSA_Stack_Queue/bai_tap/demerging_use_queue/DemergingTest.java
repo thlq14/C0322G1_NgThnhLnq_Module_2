@@ -4,18 +4,20 @@ import java.util.*;
 
 public class DemergingTest {
     public static void main(String[] args) {
-        Queue<Demerging> queueNu = new LinkedList<>();
         Queue<Demerging> queueNam = new LinkedList<>();
+        Queue<Demerging> queueNu = new LinkedList<>();
         List<Demerging> personList = new ArrayList<>();
         personList.add(new Demerging("Văn F", true, 1999));
-        personList.add(new Demerging("Thị J", false, 2001));
-        personList.add(new Demerging("Thị Ư", false, 2003));
-        personList.add(new Demerging("Văn W", true, 2005));
+        personList.add(new Demerging("Thị J", false, 2003));
+        personList.add(new Demerging("Thị W", false, 2001));
+        personList.add(new Demerging("Văn Z", true, 2005));
 
         Collections.sort(personList);
+        System.out.println("List Person: ");
         for (Demerging item : personList) {
             System.out.println(item);
         }
+
         for (Demerging item : personList) {
             if (item.isGender()) {
                 queueNam.add(item);
@@ -23,13 +25,15 @@ public class DemergingTest {
                 queueNu.add(item);
             }
         }
-        while (!queueNam.isEmpty()) {
-            System.out.println("List Nam: ");
-            System.out.println(queueNam.poll());
-        }
+
+        System.out.println("List Nữ: ");
         while (!queueNu.isEmpty()) {
-            System.out.println("List Nữ: ");
             System.out.println(queueNu.poll());
+        }
+
+        System.out.println("List Nam: ");
+        while (!queueNam.isEmpty()) {
+            System.out.println(queueNam.poll());
         }
     }
 }
