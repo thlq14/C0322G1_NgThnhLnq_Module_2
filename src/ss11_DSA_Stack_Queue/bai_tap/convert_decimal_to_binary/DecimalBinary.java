@@ -10,12 +10,19 @@ public class DecimalBinary {
         System.out.print("Nhập vào Số Thập phân: ");
         int number = scanner.nextInt();
         while (number != 0) {
+            stack.push(number % 2);
+            number /= 2;
+        }
+//        for (int i = 0; number != 0; i++) {
 //            stack.push(number % 2);
 //            number /= 2;
-        }
+//        }
         System.out.print("Giá trị Nhị phân là: ");
-        while (!(stack.empty())) {
+        while (!stack.empty()) {
             System.out.print(stack.pop());
         }
+//        for (int i = 0; !stack.empty() ; i++) {
+//            System.out.print(stack.pop());
+//        }
     }
 }

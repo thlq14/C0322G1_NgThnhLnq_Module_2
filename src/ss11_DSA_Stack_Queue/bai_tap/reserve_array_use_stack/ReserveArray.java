@@ -1,4 +1,4 @@
-package ss11_DSA_Stack_Queue.bai_tap.reserve_array_using_stack;
+package ss11_DSA_Stack_Queue.bai_tap.reserve_array_use_stack;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -17,13 +17,14 @@ public class ReserveArray {
             array[i] = scanner.nextInt();
         }
         System.out.println("Mảng trước khi đảo: " + Arrays.toString(array));
+
         for (Integer item : array) {
             stackInterger.push(item);
-//
         }
         for (int i = 0; i < array.length; i++) {
             array[i] = stackInterger.pop();
         }
         System.out.println("Mảng sau khi đảo: " + Arrays.toString(array));
+
     }
 }

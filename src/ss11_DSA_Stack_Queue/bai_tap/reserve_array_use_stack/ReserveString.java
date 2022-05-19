@@ -1,4 +1,4 @@
-package ss11_DSA_Stack_Queue.bai_tap.reserve_array_using_stack;
+package ss11_DSA_Stack_Queue.bai_tap.reserve_array_use_stack;
 
 import java.util.Scanner;
 import java.util.Stack;
