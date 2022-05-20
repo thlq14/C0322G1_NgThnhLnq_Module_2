@@ -3,7 +3,7 @@ package ss13_Search_Algorithm.bai_tap.find_ascending_series;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Main {
+public class AscendingSeries {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -42,15 +42,15 @@ public class Main {
         System.out.println();
     }
 
-/*********************************************************************************
- * 	Tính toán độ phức tạp của bài toán:                                           *
- * 	1 vòng lặp bên ngoài = n;                                                     *
- * 	1 vòng lặp bên trong = n - 1;                                                 *
- *  1 câu lệnh = 1                                                                *
- * 	1 vòng lặp * 1 câu lệnh = 1;                                                  *
- *  T(n) = (n * (n - 1)) + (1 + 1);                                               *
- *  T(n) = O(n^2) + O(n);                                                         *
- * 	T(n) = O(n^2);                                                                *
- * 	=> Độ phức tạp bài toán này là O(n^2)                                         *
- *********************************************************************************/
+    /*********************************************************************************
+    * 	Tính toán độ phức tạp của bài toán:                                           *
+    * 	1 vòng lặp bên ngoài = n;                                                     *
+    * 	1 vòng lặp bên trong = n - 1;                                                 *
+    *  1 câu lệnh = 1                                                                 *
+    * 	1 vòng lặp * 1 câu lệnh = 1;                                                  *
+    *  T(n) = (n * (n - 1)) + (1 + 1);                                                *
+    *  T(n) = O(n^2) + O(n);                                                          *
+    * 	T(n) = O(n^2);                                                                *
+    * 	=> Độ phức tạp bài toán này là O(n^2)                                         *
+    *********************************************************************************/
 }
