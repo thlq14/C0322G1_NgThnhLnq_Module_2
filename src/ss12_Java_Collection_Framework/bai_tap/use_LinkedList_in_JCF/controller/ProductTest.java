@@ -58,7 +58,7 @@ public class ProductTest {
             System.out.println("2. Danh sách Giảm dần theo Giá: ");
             productService.displayListProductByDecrease();
         } else {
-            System.out.println("Nhập lại từ 1 -> 3 !!");
+            System.out.println("Nhập lại ( 1 -> 2 ) !!");
         }
     }
 }
