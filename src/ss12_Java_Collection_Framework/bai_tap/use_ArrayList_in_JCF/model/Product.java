@@ -1,6 +1,6 @@
-package ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.use_ArrayList;
+package ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.model;
 
-public class Product implements Comparable<Product>{
+public class Product implements Comparable<Product> {
     private int id;
     private String name;
     private double price;
@@ -68,6 +68,8 @@ public class Product implements Comparable<Product>{
                 ", production = '" + production + '\'' +
                 '}';
     }
+
+    @Override
     public int compareTo(Product o) {
         if (this.getId() > o.getId()) {
             return 1;
@@ -77,13 +79,4 @@ public class Product implements Comparable<Product>{
             return 1;
         }
     }
-//    public int compareTo (Product o) {
-//        if (this.getPrice() > o.getPrice()) {
-//            return 1;
-//        } else if (this.getPrice() < o.getPrice()) {
-//            return -1;
-//        } else {
-//            return 0;
-//        }
-//    }
 }

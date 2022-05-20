@@ -1,13 +1,15 @@
-package ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.MVC.service;
+package ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.service;
 
-import _extra_exercises._product_management.Product;
-import ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.MVC.service.IProductService;
+import ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.model.Product;
+import ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.utils.DecreasePriceComparator;
+import ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.utils.IncreasePriceComparator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class ProductService implements IProductService {
+public class ProductManager implements IProductService {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Product> productList = new ArrayList<>();
 
@@ -15,12 +17,11 @@ public class ProductService implements IProductService {
         productList.add(new Product(1, "Iphone", 999, 10, "Apple"));
         productList.add(new Product(2, "S21 Ultra", 1000, 9, "Samsung"));
         productList.add(new Product(3, "Aspire", 999, 11, "Acer"));
-        productList.add(new Product(4, "Thinkphp", 998, 8, "Lenovo"));
+        productList.add(new Product(4, "Thinkpad", 998, 8, "Lenovo"));
         productList.add(new Product(5, "Macbook", 1001, 12, "Apple"));
 
     }
 
-    @Override
     public void addNewProduct() {
         System.out.print("Nhập Tên: ");
         String name = scanner.nextLine();
@@ -37,7 +38,6 @@ public class ProductService implements IProductService {
         System.out.println("Thêm Thành công.");
     }
 
-    @Override
     public void updateProductById() {
         int countUpdate = 0;
         System.out.println("Nhập ID muốn Sửa: ");
@@ -64,10 +64,8 @@ public class ProductService implements IProductService {
         if (countUpdate == 0) {
             System.out.println("KHÔNG tìm thấy ID!");
         }
-
     }
 
-    @Override
     public void removeProductById() {
         System.out.println("Nhập ID muốn xoá: ");
         int inputRemove = Integer.parseInt(scanner.nextLine());
@@ -85,7 +83,6 @@ public class ProductService implements IProductService {
             System.out.println("KHÔNG tìm thấy Id !!!");
     }
 
-    @Override
     public void displayListProduct() {
         System.out.println("List Product: ");
         for (Product item : productList) {
@@ -93,7 +90,20 @@ public class ProductService implements IProductService {
         }
     }
 
-    @Override
+    public void displayListProductByInCrease() {
+        Collections.sort(productList, new IncreasePriceComparator());
+        for (Product item : productList) {
+            System.out.println(item);
+        }
+    }
+
+    public void displayListProductByDecrease() {
+        Collections.sort(productList, new DecreasePriceComparator());
+        for (Product item : productList) {
+            System.out.println(item);
+        }
+    }
+
     public void searchProductByName() {
         int countSearch = 0;
         System.out.println("Nhập Tên SP muốn tìm: ");

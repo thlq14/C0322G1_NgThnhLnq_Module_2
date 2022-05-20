@@ -1,20 +1,20 @@
-package ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.use_ArrayList;
+package ss12_Java_Collection_Framework.bai_tap.use_LinkedList_in_JCF.service;
 
-import _extra_exercises._product_management.Product;
+import ss12_Java_Collection_Framework.bai_tap.use_LinkedList_in_JCF.model.Product;
+import ss12_Java_Collection_Framework.bai_tap.use_LinkedList_in_JCF.utils.DecreasePriceComparator;
+import ss12_Java_Collection_Framework.bai_tap.use_LinkedList_in_JCF.utils.IncreasePriceComparator;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class ProductManager extends Product {
+public class ProductManager implements IProductService {
     public static Scanner scanner = new Scanner(System.in);
-    public static List<Product> productList = new ArrayList<>();
+    public static List<Product> productList = new LinkedList<>();
 
     static {
         productList.add(new Product(1, "Iphone", 999, 10, "Apple"));
         productList.add(new Product(2, "S21 Ultra", 1000, 9, "Samsung"));
         productList.add(new Product(3, "Aspire", 999, 11, "Acer"));
-        productList.add(new Product(4, "Thinkphp", 998, 8, "Lenovo"));
+        productList.add(new Product(4, "Thinkpad", 998, 8, "Lenovo"));
         productList.add(new Product(5, "Macbook", 1001, 12, "Apple"));
 
     }
@@ -82,6 +82,22 @@ public class ProductManager extends Product {
 
     public void displayListProduct() {
         System.out.println("List Product: ");
+        for (Product item : productList) {
+            System.out.println(item);
+        }
+    }
+
+    public void displayListProductByInCrease() {
+        Collections.sort(productList, new IncreasePriceComparator());
+        System.out.println("List Product Increase: ");
+        for (Product item : productList) {
+            System.out.println(item);
+        }
+    }
+
+    public void displayListProductByDecrease() {
+        Collections.sort(productList, new DecreasePriceComparator());
+        System.out.println("List Product Decrease: ");
         for (Product item : productList) {
             System.out.println(item);
         }

@@ -1,4 +1,4 @@
-package ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.MVC.service;
+package ss12_Java_Collection_Framework.bai_tap.use_ArrayList_in_JCF.service;
 
 public interface IProductService {
     void addNewProduct();
@@ -8,6 +8,10 @@ public interface IProductService {
     void removeProductById();
 
     void displayListProduct();
+
+    void displayListProductByInCrease();
+
+    void displayListProductByDecrease();
 
     void searchProductByName();
 }
