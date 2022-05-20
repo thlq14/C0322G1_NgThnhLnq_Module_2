@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class ProductTest {
     private static Scanner scanner = new Scanner(System.in);
-
     public void displayMain() {
         IProductService productService = new ProductManager();
         do {
