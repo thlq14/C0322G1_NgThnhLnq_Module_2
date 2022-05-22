@@ -19,7 +19,6 @@ public class ProductManager implements IProductService {
         productList.add(new Product(3, "Aspire", 999, 11, "Acer"));
         productList.add(new Product(4, "Thinkpad", 998, 8, "Lenovo"));
         productList.add(new Product(5, "Macbook", 1001, 12, "Apple"));
-
     }
 
     public void addNewProduct() {
