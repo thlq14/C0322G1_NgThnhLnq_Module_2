@@ -1,7 +1,6 @@
 package FuramaResort.services.impl;
 
 import FuramaResort.models.persons.Employee;
-import FuramaResort.models.persons.Person;
 import FuramaResort.services.service.EmployeeService;
 
 import java.util.ArrayList;
