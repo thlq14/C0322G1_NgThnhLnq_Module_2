@@ -1,6 +1,6 @@
-package _bai_tap_tong_hop.views;
+package _Extra_Exercises._company_management.views;
 
-import _bai_tap_tong_hop.controllers.LinkedListPersonController;
+import _Extra_Exercises._company_management.controllers.LinkedListPersonController;
 
 public class LinkedListMain {
     public static void main(String[] args) {

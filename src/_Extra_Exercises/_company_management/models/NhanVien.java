@@ -1,4 +1,4 @@
-package _bai_tap_tong_hop.models;
+package _Extra_Exercises._company_management.models;
 
 public abstract class NhanVien {
     private String name;

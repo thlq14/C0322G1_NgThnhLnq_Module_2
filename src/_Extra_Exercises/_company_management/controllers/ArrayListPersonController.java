@@ -1,7 +1,7 @@
-package _bai_tap_tong_hop.controllers;
+package _Extra_Exercises._company_management.controllers;
 
-import _bai_tap_tong_hop.services.ArrayListPersonImpl;
-import _bai_tap_tong_hop.services.PersonService;
+import _Extra_Exercises._company_management.services.ArrayListPersonImpl;
+import _Extra_Exercises._company_management.services.PersonService;
 
 import java.util.Scanner;
 

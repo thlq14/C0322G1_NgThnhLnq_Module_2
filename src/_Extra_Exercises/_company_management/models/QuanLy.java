@@ -1,6 +1,6 @@
-package _bai_tap_tong_hop.models;
+package _Extra_Exercises._company_management.models;
 
-import _bai_tap_tong_hop.services.ChamCong;
+import _Extra_Exercises._company_management.services.ChamCong;
 
 import java.math.BigDecimal;
 

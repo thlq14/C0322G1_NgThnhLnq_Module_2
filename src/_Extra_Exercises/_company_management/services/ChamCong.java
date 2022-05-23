@@ -1,4 +1,4 @@
-package _bai_tap_tong_hop.services;
+package _Extra_Exercises._company_management.services;
 
 public interface ChamCong {
     void ChamCong();

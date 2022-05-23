@@ -1,6 +1,6 @@
-package _bai_tap_tong_hop.utils;
+package _Extra_Exercises._company_management.utils;
 
-import _bai_tap_tong_hop.models.NhanVien;
+import _Extra_Exercises._company_management.models.NhanVien;
 
 import java.util.Comparator;
 

@@ -1,6 +1,6 @@
-package _bai_tap_tong_hop.views;
+package _Extra_Exercises._company_management.views;
 
-import _bai_tap_tong_hop.controllers.ArrayListPersonController;
+import _Extra_Exercises._company_management.controllers.ArrayListPersonController;
 
 public class ArrayListMain {
     public static void main(String[] args) {
