@@ -1,4 +1,5 @@
 package _bai_tap_tong_hop.controllers;
+
 import _bai_tap_tong_hop.services.ArrayListPersonImpl;
 import _bai_tap_tong_hop.services.PersonService;
 
@@ -7,6 +8,7 @@ import java.util.Scanner;
 public class ArrayListPersonController {
     private static Scanner scanner = new Scanner(System.in);
     static PersonService personService = new ArrayListPersonImpl();
+
     public static void displayMenu() {
         while (true) {
             System.out.println("Display List Person: \n" +
@@ -15,6 +17,7 @@ public class ArrayListPersonController {
                     "3. Display List Cong Nhat.\n" +
                     "4. Display List San Xuat.\n" +
                     "5. Display List Sorted.\n" +
+                    "6. Exit.\n" +
                     "Choose Option: ");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
@@ -33,6 +36,8 @@ public class ArrayListPersonController {
                 case 5:
                     displayListSorted();
                     break;
+                case 6:
+                    System.exit(0);
                 default:
                     System.out.println("Enter Again!!");
                     break;
@@ -48,7 +53,7 @@ public class ArrayListPersonController {
             System.out.println("1. Display List Increase By Salary: ");
             personService.displayListSalaryByIncrease();
         } else if (inputDisplay == 2) {
-            System.out.println("2. Display List Decrease By Name: ");
+            System.out.println("2. Display List Increase By Name: ");
             personService.displayListNameByIncrease();
         } else {
             System.out.println("Nhập lại ( 1 -> 2 ) !!");

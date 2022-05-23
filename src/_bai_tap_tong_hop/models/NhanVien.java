@@ -39,6 +39,11 @@ public abstract class NhanVien {
     }
 
     public abstract double salaryStaff();
+    /* iv. Suy nghĩ xem class cha có cần phương thức abstract không? Vì sao?
+     * Việc dùng abstract class sẽ giúp cho chúng ta dễ dàng control được ý muốn của mình.
+     * Nếu bạn muốn các thằng con của abstract class phải làm đều gì đó thì bạn khai báo abstract method,
+     * còn nếu như muốn cho các thằng con dùng chung thì bạn để method thông thường.
+     */
 
     @Override
     public String toString() {

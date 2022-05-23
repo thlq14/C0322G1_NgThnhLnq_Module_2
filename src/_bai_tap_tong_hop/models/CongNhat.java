@@ -1,5 +1,7 @@
 package _bai_tap_tong_hop.models;
 
+import java.math.BigDecimal;
+
 public class CongNhat extends NhanVien {
     private int soNgayCong;
 
@@ -25,14 +27,14 @@ public class CongNhat extends NhanVien {
 
     @Override
     public double salaryStaff() {
-        return this.soNgayCong * 120.000;
+        return this.soNgayCong * 120000;
     }
 
     @Override
     public String toString() {
         return "CongNhat {" + super.toString() +
                 ", soNgayCong = " + soNgayCong +
-                ", luong = " + salaryStaff() +
+                ", luong = " + new BigDecimal(salaryStaff()) +
                 '}';
     }
 }

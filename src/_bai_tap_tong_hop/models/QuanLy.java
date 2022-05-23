@@ -1,6 +1,10 @@
 package _bai_tap_tong_hop.models;
 
-public class QuanLy extends NhanVien {
+import _bai_tap_tong_hop.services.ChamCong;
+
+import java.math.BigDecimal;
+
+public class QuanLy extends NhanVien implements ChamCong {
     private double luongCoBan;
     private double heSoLuong;
 
@@ -44,7 +48,12 @@ public class QuanLy extends NhanVien {
         return "QuanLy {" + super.toString() +
                 ", luongCoBan = " + luongCoBan +
                 ", heSoLuong = " + heSoLuong +
-                ", luong = " + salaryStaff() +
+                ", luong = " + new BigDecimal(salaryStaff()) +
                 '}';
+    }
+
+    @Override
+    public void ChamCong() {
+        System.out.println("Đã Chấm Công");
     }
 }

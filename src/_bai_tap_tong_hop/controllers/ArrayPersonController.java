@@ -1,4 +1,5 @@
 package _bai_tap_tong_hop.controllers;
+
 import _bai_tap_tong_hop.services.PersonService;
 import _bai_tap_tong_hop.services.ArrayPersonImpl;
 
@@ -7,6 +8,7 @@ import java.util.Scanner;
 public class ArrayPersonController {
     private static Scanner scanner = new Scanner(System.in);
     static PersonService personService = new ArrayPersonImpl();
+
     public static void displayMenu() {
         while (true) {
             System.out.println("Display List Person: \n" +

@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class LinkedListPersonController {
     private static Scanner scanner = new Scanner(System.in);
     static PersonService personService = new LinkedListPersonImpl();
+
     public static void displayMenu() {
         while (true) {
             System.out.println("Display List Person: \n" +
@@ -15,8 +16,8 @@ public class LinkedListPersonController {
                     "2. Display List Quan Ly.\n" +
                     "3. Display List Cong Nhat.\n" +
                     "4. Display List San Xuat.\n" +
-                    "5. Display List All Person By Salary Increase.\n" +
-                    "6. Display List All Person By Name Increase.\n" +
+                    "5. Display List Sorted.\n" +
+                    "6. Exit.\n" +
                     "Choose Option: ");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
@@ -33,15 +34,29 @@ public class LinkedListPersonController {
                     personService.displayListSanXuat();
                     break;
                 case 5:
-                    personService.displayListSalaryByIncrease();
+                    displayListSorted();
                     break;
                 case 6:
-                    personService.displayListNameByDecrease();
-                    break;
+                    System.exit(0);
                 default:
                     System.out.println("Enter Again!!");
                     break;
             }
+        }
+    }
+
+    public static void displayListSorted() {
+        System.out.println("1. Display List Increase By Salary: ");
+        System.out.println("2. Display List Decrease By Name: ");
+        int inputDisplay = Integer.parseInt(scanner.nextLine());
+        if (inputDisplay == 1) {
+            System.out.println("1. Display List Increase By Salary: ");
+            personService.displayListSalaryByIncrease();
+        } else if (inputDisplay == 2) {
+            System.out.println("2. Display List Increase By Name: ");
+            personService.displayListNameByIncrease();
+        } else {
+            System.out.println("Nhập lại ( 1 -> 2 ) !!");
         }
     }
 }

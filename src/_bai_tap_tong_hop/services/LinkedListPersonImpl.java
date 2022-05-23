@@ -40,6 +40,7 @@ public class LinkedListPersonImpl implements PersonService {
         for (NhanVien item : personList) {
             if (item instanceof QuanLy) {
                 System.out.println(item);
+                ((QuanLy) item).ChamCong();
             }
         }
     }
@@ -58,6 +59,7 @@ public class LinkedListPersonImpl implements PersonService {
         for (NhanVien item : personList) {
             if (item instanceof SanXuat) {
                 System.out.println(item);
+                ((SanXuat) item).ChamCong();
             }
         }
     }

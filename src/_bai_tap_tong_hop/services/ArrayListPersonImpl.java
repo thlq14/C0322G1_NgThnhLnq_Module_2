@@ -40,6 +40,7 @@ public class ArrayListPersonImpl implements PersonService {
         for (NhanVien item : personList) {
             if (item instanceof QuanLy) {
                 System.out.println(item);
+                ((QuanLy) item).ChamCong();
             }
         }
     }
@@ -58,6 +59,7 @@ public class ArrayListPersonImpl implements PersonService {
         for (NhanVien item : personList) {
             if (item instanceof SanXuat) {
                 System.out.println(item);
+                ((SanXuat) item).ChamCong();
             }
         }
     }
@@ -85,6 +87,8 @@ public class ArrayListPersonImpl implements PersonService {
             System.out.println(item);
         }
     }
+
+    @Override
     public void displayListSorted() {
         for (int i = 0; i < personList.size(); i++) {
             for (int j = i + 1; j < personList.size(); j++) {

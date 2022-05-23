@@ -1,6 +1,10 @@
 package _bai_tap_tong_hop.models;
 
-public class SanXuat extends NhanVien {
+import _bai_tap_tong_hop.services.ChamCong;
+
+import java.math.BigDecimal;
+
+public class SanXuat extends NhanVien implements ChamCong {
     private int soSanPham;
 
     public SanXuat() {
@@ -27,11 +31,17 @@ public class SanXuat extends NhanVien {
     public String toString() {
         return "SanXuat {" + super.toString() +
                 ", soSanPham = " + soSanPham +
-                ", luong = " + salaryStaff() +
+                ", luong = " + new BigDecimal(salaryStaff()) +
                 '}';
     }
+
     @Override
     public double salaryStaff() {
-        return this.soSanPham * 50.000;
+        return this.soSanPham * 50000;
+    }
+
+    @Override
+    public void ChamCong() {
+        System.out.println("Đã Chấm Công");
     }
 }
