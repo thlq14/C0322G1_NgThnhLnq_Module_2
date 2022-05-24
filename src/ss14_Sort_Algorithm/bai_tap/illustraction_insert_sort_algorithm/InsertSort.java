@@ -16,7 +16,7 @@ public class InsertSort {
         for (int j : list) {
             System.out.print(j + "\t");
         }
-        System.out.println("\nAfter Sort: ");
+        System.out.println();
         insertionSort(list);
         for (int item : list) {
             System.out.print(item + "\t");
@@ -24,15 +24,27 @@ public class InsertSort {
     }
 
     public static void insertionSort(int[] array) {
+        int pos, x;
         for (int i = 1; i < array.length; i++) { // đoạn array[0] đã sắp xếp
-            int temp = array[i];
-            while (i > 0 && temp < array[i - 1]) {
-                array[i] = array[i - 1]; // đổi chỗ
-                i--;
+            x = array[i];
+            pos = i;
+            while (pos > 0 && x < array[pos - 1]) {
+                array[pos] = array[pos - 1]; // đổi chỗ
+                pos--;
+                System.out.println("Di chuyển Phần tử: " + array[pos]);
             }
-            array[i] = temp;
-            System.out.println("Insert " + array[i] + " into a sorted sublist " + array[i - 1] + " so that " + array[i] + " is sorted");
+            if (pos != i) {
+                System.out.println("Chèn Phần tử: " + x + ", tại vị trí: " + pos);
+                array[pos] = x;
+            }
+            System.out.println("\nVòng lặp thứ: " + i);
+            System.out.print("[");
+            for (int j : array) {
+                System.out.print(j + " ");
+            }
+            System.out.print("]\n");
         }
+        System.out.println("Array After Sort: ");
     }
 }
 

@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c501dab-ddf7-4a8b-9976-3dccf9752406" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/controllers/ArrayListPersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/controllers/ArrayListPersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/controllers/ArrayPersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/controllers/ArrayPersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/controllers/LinkedListPersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/controllers/LinkedListPersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/models/CongNhat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/models/CongNhat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/models/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/models/NhanVien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/models/QuanLy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/models/QuanLy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/models/SanXuat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/models/SanXuat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/services/ArrayListPersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/services/ArrayListPersonImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/services/ArrayPersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/services/ArrayPersonImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/services/ChamCong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/services/ChamCong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/services/LinkedListPersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/services/LinkedListPersonImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/services/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/services/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/services/PersonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/utils/DecreaseNameComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/utils/DecreaseNameComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/utils/IncreaseNameComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/utils/IncreaseNameComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/utils/IncreaseSalaryComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/utils/IncreaseSalaryComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/views/ArrayListMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/views/ArrayListMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/views/ArrayMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/views/ArrayMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_bai_tap_tong_hop/views/LinkedListMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Extra_Exercises/_company_management/views/LinkedListMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ss14_Sort_Algorithm/bai_tap/illustraction_insert_sort_algorithm/InsertSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ss14_Sort_Algorithm/bai_tap/illustraction_insert_sort_algorithm/InsertSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ss15_Exceptions_Debug/bai_tap/use_IllegalTriangleException/TriangleEdgesCheck .java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +60,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Map">
+  <component name="RunManager" selected="Application.InsertSort">
     <configuration name="ArrayListMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="_Extra_Exercises._company_management.views.ArrayListMain" />
       <module name="Module_2" />
@@ -91,11 +75,11 @@
       </method>
     </configuration>
     <configuration name="ArrayMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_bai_tap_tong_hop.use_Array.views.ArrayMain" />
+      <option name="MAIN_CLASS_NAME" value="_Extra_Exercises._company_management.views.ArrayMain" />
       <module name="Module_2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="_bai_tap_tong_hop.use_Array.views.*" />
+          <option name="PATTERN" value="_Extra_Exercises._company_management.views.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,12 +87,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArrayMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_Extra_Exercises._company_management.views.ArrayMain" />
+    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ss14_Sort_Algorithm.bai_tap.illustraction_insert_sort_algorithm.InsertSort" />
       <module name="Module_2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="_Extra_Exercises._company_management.views.*" />
+          <option name="PATTERN" value="ss14_Sort_Algorithm.bai_tap.illustraction_insert_sort_algorithm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,11 +114,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_bai_tap_tong_hop.use_Array.controllers.view.Main" />
+      <option name="MAIN_CLASS_NAME" value="FuramaResort.views.Main" />
       <module name="Module_2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="_bai_tap_tong_hop.use_Array.controllers.view.*" />
+          <option name="PATTERN" value="FuramaResort.views.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -157,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.InsertSort" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Map" />
-        <item itemvalue="Application.ArrayMain (1)" />
         <item itemvalue="Application.LinkedListMain" />
         <item itemvalue="Application.ArrayListMain" />
-        <item itemvalue="Application.ArrayMain" />
       </list>
     </recent_temporary>
   </component>
@@ -203,6 +187,8 @@
       <workItem from="1653190795049" duration="19984000" />
       <workItem from="1653268486767" duration="25314000" />
       <workItem from="1653305773958" duration="6978000" />
+      <workItem from="1653316367818" duration="2102000" />
+      <workItem from="1653354260773" duration="1146000" />
     </task>
     <servers />
   </component>
