@@ -1,9 +1,6 @@
 package _Furama_Resort.controllers;
 
-import _Furama_Resort.services.impl.BookingServiceImpl;
-import _Furama_Resort.services.impl.CustomerServiceImpl;
-import _Furama_Resort.services.impl.EmployeeServiceImpl;
-import _Furama_Resort.services.impl.FacilityServiceImpl;
+import _Furama_Resort.services.impl.*;
 
 import java.util.Scanner;
 
@@ -13,6 +10,7 @@ public class FuramaController {
     static CustomerServiceImpl customerService = new CustomerServiceImpl();
     static FacilityServiceImpl facilityService = new FacilityServiceImpl();
     static BookingServiceImpl bookingService = new BookingServiceImpl();
+    static ContractServiceImpl contractService = new ContractServiceImpl();
 
     public static void displayMainMenu() {
         while (true) {
@@ -140,7 +138,7 @@ public class FuramaController {
 
     public static void displayBookingMenu() {
         while (true) {
-            System.out.println("________BOOKINGS________");
+            System.out.println("___BOOKINGS_CONTRACTS___");
             System.out.println("1. Add New Booking.");
             System.out.println("2. Display List Booking.");
             System.out.println("3. Create New Contracts.");
@@ -159,7 +157,22 @@ public class FuramaController {
                     break;
                 case 3:
                     System.out.println("Create New Contracts.");
-
+                    contractService.createNewContract();
+                    break;
+                case 4:
+                    System.out.println("Display List Contracts.");
+                    contractService.displayListContract();
+                    break;
+                case 5:
+                    System.out.println("Edit Contracts.");
+                    contractService.editContract();
+                    break;
+                case 6:
+                    System.out.println("4. Return Main Menu.");
+                    displayMainMenu();
+                    break;
+                default:
+                    System.out.println("Error: Enter Again..");
                     break;
             }
         }

@@ -4,6 +4,4 @@ public interface BookingService {
     void displayListBooking();
 
     void addNewBooking();
-
-    void editBooking();
 }

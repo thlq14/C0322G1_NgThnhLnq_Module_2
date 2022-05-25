@@ -18,9 +18,13 @@ public class BookingServiceImpl implements BookingService {
     static {
         customerList.add(new Customer(189, "Jiren", 22, "Male", 6843, 616782, "jiren@gmail.com", "35383rth", "Diamond", "Planet 11"));
         customerList.add(new Customer(761, "Hit", 29, "Male", 7854, 453987, "hit@gmail.com", "hit784", "Platinum", "Planet 6"));
-        facilityList.put(new Villa("villa685", "Villa qwerty", 784, 794, 3, "Day", "Normal", 20, 5), 0);
+        facilityList.put(new Villa("vil685", "Villa qwerty", 784, 794, 3, "Day", "Normal", 20, 5), 0);
         facilityList.put(new Villa("vil426", "Villa one", 714, 145, 10, "Night", "Vip", 15, 7), 0);
 
+    }
+
+    public Set<Booking> bookingSet() {
+        return bookingSet;
     }
 
     @Override
@@ -36,6 +40,7 @@ public class BookingServiceImpl implements BookingService {
         if (!bookingSet.isEmpty()) {
             id = bookingSet.size();
         }
+
         Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
         System.out.println("Enter Rental Start Date: ");
@@ -47,16 +52,12 @@ public class BookingServiceImpl implements BookingService {
         System.out.println("Added Booking Success.");
     }
 
-    @Override
-    public void editBooking() {
-
-    }
-
     public static Customer chooseCustomer() {
         System.out.println("List Customer: ");
         for (Customer item : customerList) {
             System.out.println(item); // toString
         }
+
         System.out.println("Enter ID Customer: ");
         boolean flag = true;
         int id = Integer.parseInt(scanner.nextLine());
@@ -80,6 +81,7 @@ public class BookingServiceImpl implements BookingService {
         for (Map.Entry<Facility, Integer> item : facilityList.entrySet()) {
             System.out.println(item.getKey()); // toString
         }
+
         System.out.println("Enter ID Facility: ");
         boolean check = true;
         String id = scanner.nextLine();
