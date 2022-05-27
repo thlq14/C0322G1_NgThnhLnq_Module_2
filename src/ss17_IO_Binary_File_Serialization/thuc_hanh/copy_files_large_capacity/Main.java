@@ -29,7 +29,6 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
         System.out.printf("Enter source file:");
         String sourcePath = in.nextLine();
         System.out.printf("Enter destination file:");
@@ -40,7 +39,7 @@ public class Main {
 
         try {
             copyFileUsingJava7Files(sourceFile, destFile);
-            //copyFileUsingStream(sourceFile, destFile);
+            copyFileUsingStream(sourceFile, destFile);
             System.out.printf("Copy completed");
         } catch (IOException ioe) {
             System.out.printf("Can't copy that file");
