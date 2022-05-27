@@ -9,10 +9,9 @@ public class CopyFileText {
         File targetFile = new File(target);
         if (!sourceFile.exists()) {
             System.out.println("Source File Does Not Exist.");
-//        } else if (targetFile.exists()) {
-//            System.out.println("Target File Already Exist.");
         } else {
             String line;
+            int count = 0;
             try (FileReader fileReader = new FileReader(sourceFile);
                  BufferedReader bufferedReader = new BufferedReader(fileReader);
                  FileWriter fileWriter = new FileWriter(targetFile);
@@ -20,7 +19,9 @@ public class CopyFileText {
                 while ((line = bufferedReader.readLine()) != null) {
                     bufferedWriter.write(line);
                     bufferedWriter.newLine();
+                    count += line.length();
                 }
+                bufferedWriter.write("Number of Character in File: " + count);
             } catch (IOException e) {
                 e.printStackTrace();
             }

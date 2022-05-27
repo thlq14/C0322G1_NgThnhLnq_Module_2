@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8c501dab-ddf7-4a8b-9976-3dccf9752406" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_Furama_Resort/controllers/FuramaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Furama_Resort/controllers/FuramaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_Furama_Resort/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Furama_Resort/models/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_Furama_Resort/services/impl/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Furama_Resort/services/impl/BookingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_Furama_Resort/services/impl/FacilityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Furama_Resort/services/impl/FacilityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_Furama_Resort/utils/BookingComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Furama_Resort/utils/BookingComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ss15_Exceptions_Debug/bai_tap/use_IllegalTriangleException/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ss15_Exceptions_Debug/bai_tap/use_IllegalTriangleException/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/CopyFileText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/CopyFileText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/target.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/target.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +70,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ReadFileCsv">
+  <component name="RunManager" selected="Application.CopyFileText">
     <configuration name="AmendSentence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="_Algorithm.AmendSentence" />
       <module name="Module_2" />
@@ -142,8 +138,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReadFileCsv" />
         <item itemvalue="Application.CopyFileText" />
+        <item itemvalue="Application.ReadFileCsv" />
         <item itemvalue="Application.AmendSentence" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main (3)" />
@@ -201,7 +197,7 @@
       <workItem from="1653570485664" duration="11569000" />
       <workItem from="1653582505054" duration="121000" />
       <workItem from="1653582643186" duration="34000" />
-      <workItem from="1653613796486" duration="303000" />
+      <workItem from="1653613796486" duration="1275000" />
     </task>
     <servers />
   </component>
