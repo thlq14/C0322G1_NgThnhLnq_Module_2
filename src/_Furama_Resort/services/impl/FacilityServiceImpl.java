@@ -14,9 +14,10 @@ public class FacilityServiceImpl implements FacilityService {
     private static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
     private static Scanner scanner = new Scanner(System.in);
 
-//    static {
-////        facilityList.put(new Villa("kskecrf", "kskjebc", 613, 654, 5, "ưkcjeb", " ưkẻb", 651, 7));
-//    }
+    static {
+        facilityList.put(new Villa("vil685", "Villa qwerty", 784, 794, 3, "Day", "Normal", 20, 5), 0);
+        facilityList.put(new Villa("vil426", "Villa one", 714, 145, 10, "Night", "Vip", 15, 7), 0);
+    }
 
     @Override
     public void displayListFacility() {

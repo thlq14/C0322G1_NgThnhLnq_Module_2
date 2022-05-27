@@ -15,10 +15,11 @@ public class Main {
                 int edge2 = Integer.parseInt(scanner.nextLine());
                 System.out.println("Enter a Triangle Edge 3: ");
                 int edge3 = Integer.parseInt(scanner.nextLine());
-                if (edge1 + edge2 <= edge3 || edge1 + edge3 <= edge2 || edge2 + edge3 <= edge1 || edge1 <= 0 || edge2 <= 0 || edge3 <= 0) {
+                if (edge1 + edge2 <= edge3 || edge1 + edge3 <= edge2 || edge2 + edge3 <= edge1
+                        || edge1 <= 0 || edge2 <= 0 || edge3 <= 0) {
                     throw new IllegalTriangleException("Invalid Triangle.");
                 } else {
-                    System.out.println("Valid Triangle.");
+                    throw new IllegalTriangleException("Valid Triangle.");
                 }
             } catch (Exception e) {
                 System.out.println("Error: Incorrect Format.");

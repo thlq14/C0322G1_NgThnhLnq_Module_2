@@ -2,11 +2,11 @@ package _Furama_Resort.services.impl;
 
 import _Furama_Resort.models.Booking;
 import _Furama_Resort.models.facilitys.Facility;
-import _Furama_Resort.models.facilitys.Villa;
 import _Furama_Resort.models.persons.Customer;
 import _Furama_Resort.services.service.BookingService;
 import _Furama_Resort.utils.BookingComparator;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
@@ -14,14 +14,6 @@ public class BookingServiceImpl implements BookingService {
     static Set<Booking> bookingSet = new TreeSet<>(new BookingComparator());
     static List<Customer> customerList = new ArrayList<>();
     static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
-
-    static {
-        customerList.add(new Customer(189, "Jiren", 22, "Male", 6843, 616782, "jiren@gmail.com", "35383rth", "Diamond", "Planet 11"));
-        customerList.add(new Customer(761, "Hit", 29, "Male", 7854, 453987, "hit@gmail.com", "hit784", "Platinum", "Planet 6"));
-        facilityList.put(new Villa("vil685", "Villa qwerty", 784, 794, 3, "Day", "Normal", 20, 5), 0);
-        facilityList.put(new Villa("vil426", "Villa one", 714, 145, 10, "Night", "Vip", 15, 7), 0);
-
-    }
 
     public Set<Booking> bookingSet() {
         return bookingSet;
@@ -44,37 +36,43 @@ public class BookingServiceImpl implements BookingService {
         Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
         System.out.println("Enter Rental Start Date: ");
-        String startDate = scanner.nextLine();
+        LocalDate startDate = LocalDate.parse(scanner.nextLine());
         System.out.println("Enter Rental End Date: ");
-        String endDate = scanner.nextLine();
+        LocalDate endDate = LocalDate.parse(scanner.nextLine());
         Booking booking = new Booking(id, startDate, endDate, customer, facility);
         bookingSet.add(booking);
         System.out.println("Added Booking Success.");
     }
 
     public static Customer chooseCustomer() {
-        System.out.println("List Customer: ");
-        for (Customer item : customerList) {
-            System.out.println(item); // toString
+        if (customerList.isEmpty()) {
+            System.out.println("NOT found Customer.");
+        } else {
+            System.out.println("List Customer: ");
+            for (Customer item : customerList) {
+                System.out.println(item); // toString
+            }
         }
 
-        System.out.println("Enter ID Customer: ");
         boolean flag = true;
-        int id = Integer.parseInt(scanner.nextLine());
+        Customer customer = null;
+        int id;
         while (flag) {
+            System.out.println("Enter ID Customer: ");
+            id = Integer.parseInt(scanner.nextLine());
             for (Customer item : customerList) {
                 if (id == item.getId()) {
                     flag = false;
-                    return item;
+                    customer = item;
                 }
             }
             if (flag) {
                 System.out.println("Error: Enter ID Customer Again..");
-                id = Integer.parseInt(scanner.nextLine());
             }
         }
-        return null;
+        return customer;
     }
+
 
     public static Facility chooseFacility() {
         System.out.println("List Facility: ");
@@ -82,21 +80,22 @@ public class BookingServiceImpl implements BookingService {
             System.out.println(item.getKey()); // toString
         }
 
-        System.out.println("Enter ID Facility: ");
         boolean check = true;
-        String id = scanner.nextLine();
+        Facility facility = null;
+        String id;
         while (check) {
+            System.out.println("Enter ID Facility: ");
+            id = scanner.nextLine();
             for (Map.Entry<Facility, Integer> item : facilityList.entrySet()) {
                 if (id.equals(item.getKey().getIdFacility())) {
                     check = false;
-                    return item.getKey();
+                    facility = item.getKey();
                 }
             }
             if (check) {
                 System.out.println("Error: Enter ID Facility Again..");
-                id = scanner.nextLine();
             }
         }
-        return null;
+        return facility;
     }
 }
