@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8c501dab-ddf7-4a8b-9976-3dccf9752406" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/CopyFileText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/CopyFileText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module_2/ss16_IO_Text_File/bai_tap/copy_file_text/source.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Module_2/ss16_IO_Text_File/bai_tap/copy_file_text/source.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module_2/ss16_IO_Text_File/bai_tap/copy_file_text/target.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Module_2/ss16_IO_Text_File/bai_tap/copy_file_text/target.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/source.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/source.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/target.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/copy_file_text/target.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/read_file_csv/ReadFileCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ss16_IO_Text_File/bai_tap/read_file_csv/ReadFileCsv.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +200,7 @@
       <workItem from="1653570485664" duration="11569000" />
       <workItem from="1653582505054" duration="121000" />
       <workItem from="1653582643186" duration="34000" />
-      <workItem from="1653613796486" duration="1275000" />
+      <workItem from="1653613796486" duration="2173000" />
     </task>
     <servers />
   </component>

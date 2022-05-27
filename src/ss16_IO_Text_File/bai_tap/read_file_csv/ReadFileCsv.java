@@ -5,19 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFileCsv {
-    public static void main(String[] args) {
-        List<Country> countryList = new ArrayList<>();
-        List<String[]> list = ReadFileCsv.readFile("src/ss16_IO_Text_File/bai_tap/read_file_csv/file.csv");
-        for (String[] item : list) {
-            Country country = new Country(Integer.parseInt(item[0]), item[1], item[2]);
-            countryList.add(country);
-        }
-        System.out.println("List Country: ");
-        for (Country item : countryList) {
-            System.out.println(item);
-        }
-    }
-
     public static List<String[]> readFile(String pathFile) {
         File file = new File(pathFile);
         List<String[]> list = new ArrayList<>();
@@ -36,5 +23,18 @@ public class ReadFileCsv {
             }
         }
         return list;
+    }
+
+    public static void main(String[] args) {
+        List<Country> countryList = new ArrayList<>();
+        List<String[]> list = ReadFileCsv.readFile("src/ss16_IO_Text_File/bai_tap/read_file_csv/file.csv");
+        for (String[] item : list) {
+            Country country = new Country(Integer.parseInt(item[0]), item[1], item[2]);
+            countryList.add(country);
+        }
+        System.out.println("List Country: ");
+        for (Country item : countryList) {
+            System.out.println(item);
+        }
     }
 }
