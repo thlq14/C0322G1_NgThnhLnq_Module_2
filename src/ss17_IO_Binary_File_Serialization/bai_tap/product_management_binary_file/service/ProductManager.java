@@ -1,4 +1,5 @@
 package ss17_IO_Binary_File_Serialization.bai_tap.product_management_binary_file.service;
+
 import ss17_IO_Binary_File_Serialization.bai_tap.product_management_binary_file.model.Product;
 import ss17_IO_Binary_File_Serialization.bai_tap.product_management_binary_file.utils.ReadAndWriteBinaryFile;
 
@@ -10,9 +11,11 @@ public class ProductManager implements IProductService {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Product> productList = new ArrayList<>();
 
+    static {
+        productList.add(new Product(1, "Realme", 200, 10, "CN"));
+    }
+
     public void addNewProduct() {
-        System.out.print("Nhập Id: ");
-        int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập Tên: ");
         String name = scanner.nextLine();
         System.out.print("Nhập Giá: ");
@@ -21,9 +24,10 @@ public class ProductManager implements IProductService {
         int amount = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập Nhà sản xuất: ");
         String production = scanner.nextLine();
+        int id = productList.get(productList.size() - 1).getId() + 1;
         Product product = new Product(id, name, price, amount, production);
         productList.add(product);
-        ReadAndWriteBinaryFile.writeFile("src/ss17_IO_Binary_File_Serialization/bai_tap/product_management_binary_file/data/product.csv", productList);
+        ReadAndWriteBinaryFile.writeFile("src/ss17_IO_Binary_File_Serialization/bai_tap/product_management_binary_file/data/product_binary.csv", productList);
         System.out.println("Thêm Thành công.");
     }
 
@@ -73,7 +77,7 @@ public class ProductManager implements IProductService {
     }
 
     public void displayListProduct() {
-        productList = (List<Product>) ReadAndWriteBinaryFile.readFile("src/ss17_IO_Binary_File_Serialization/bai_tap/product_management_binary_file/data/product.csv");
+        productList = (List<Product>) ReadAndWriteBinaryFile.readFile("src/ss17_IO_Binary_File_Serialization/bai_tap/product_management_binary_file/data/product_binary.csv");
         System.out.println("List Product: ");
         for (Product item : productList) {
             System.out.println(item);
@@ -82,7 +86,7 @@ public class ProductManager implements IProductService {
 
     public void searchProductByName() {
         int countSearch = 0;
-        productList = (List<Product>) ReadAndWriteBinaryFile.readFile("src/ss17_IO_Binary_File_Serialization/bai_tap/product_management_binary_file/data/product.csv");
+        productList = (List<Product>) ReadAndWriteBinaryFile.readFile("src/ss17_IO_Binary_File_Serialization/bai_tap/product_management_binary_file/data/product_binary.csv");
         System.out.println("Nhập Tên SP muốn tìm: ");
         String inputSearch = scanner.nextLine();
         for (Product item : productList) {

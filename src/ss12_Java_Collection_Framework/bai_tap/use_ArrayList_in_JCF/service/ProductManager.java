@@ -14,9 +14,11 @@ public class ProductManager implements IProductService {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Product> productList = new ArrayList<>();
 
+    static {
+        productList.add(new Product(1, "qwerty", 200, 5, "poiuytr"));
+    }
+
     public void addNewProduct() {
-        System.out.print("Nhập Id: ");
-        int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập Tên: ");
         String name = scanner.nextLine();
         System.out.print("Nhập Giá: ");
@@ -25,6 +27,7 @@ public class ProductManager implements IProductService {
         int amount = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập Nhà sản xuất: ");
         String production = scanner.nextLine();
+        int id = productList.get(productList.size() - 1).getId() + 1;
         Product product = new Product(id, name, price, amount, production);
         productList.add(product);
         String line = product.getId() + "," +
@@ -32,7 +35,7 @@ public class ProductManager implements IProductService {
                 product.getPrice() + "," +
                 product.getAmount() + "," +
                 product.getProduction();
-        ReadAndWriteFile.writeFile("src/ss12_Java_Collection_Framework/bai_tap/use_ArrayList_in_JCF/data/productArrayList.csv", line);
+        ReadAndWriteFile.writeFile("src/ss12_Java_Collection_Framework/bai_tap/use_ArrayList_in_JCF/data/product.csv", line);
         System.out.println("Thêm Thành công.");
     }
 
@@ -82,7 +85,7 @@ public class ProductManager implements IProductService {
     }
 
     public void displayListProduct() {
-        List<String[]> list = ReadAndWriteFile.readFile("src/ss12_Java_Collection_Framework/bai_tap/use_ArrayList_in_JCF/data/productArrayList.csv");
+        List<String[]> list = ReadAndWriteFile.readFile("src/ss12_Java_Collection_Framework/bai_tap/use_ArrayList_in_JCF/data/product.csv");
         productList.clear();
         for (String[] item : list) {
             Product product = new Product(Integer.parseInt(item[0]), item[1],
