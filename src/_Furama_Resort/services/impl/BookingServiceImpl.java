@@ -1,10 +1,11 @@
 package _Furama_Resort.services.impl;
 
-import _Furama_Resort.models.Booking;
+import _Furama_Resort.models.bookings.Booking;
 import _Furama_Resort.models.facilitys.Facility;
 import _Furama_Resort.models.persons.Customer;
 import _Furama_Resort.services.service.BookingService;
 import _Furama_Resort.utils.BookingComparator;
+import _Furama_Resort.utils.ReadAndWriteFile;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -21,6 +22,12 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void displayListBooking() {
+//        List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/booking.csv");
+//        bookingSet.clear();
+//        for (String[] item: list) {
+//            Booking booking = new Booking(Integer.parseInt(item[0]), LocalDate.parse(item[1]), LocalDate.parse(item[2]), item[3], item);
+//            bookingSet.add(booking);
+//        }
         for (Booking item : bookingSet) {
             System.out.println(item); // toString
         }
@@ -41,6 +48,8 @@ public class BookingServiceImpl implements BookingService {
         LocalDate endDate = LocalDate.parse(scanner.nextLine());
         Booking booking = new Booking(id, startDate, endDate, customer, facility);
         bookingSet.add(booking);
+        String line = booking.getIdBooking() + "," + booking.getStartDate() + "," + booking.getEndDate() + "," + booking.getCustomer() + "," + booking.getFacility();
+        ReadAndWriteFile.writeFile("src/_Furama_Resort/data/booking.csv", line);
         System.out.println("Added Booking Success.");
     }
 

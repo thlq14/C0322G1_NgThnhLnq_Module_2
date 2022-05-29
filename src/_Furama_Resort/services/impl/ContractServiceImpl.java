@@ -1,9 +1,10 @@
 package _Furama_Resort.services.impl;
 
-import _Furama_Resort.models.Booking;
-import _Furama_Resort.models.Contract;
+import _Furama_Resort.models.bookings.Booking;
+import _Furama_Resort.models.contracts.Contract;
 import _Furama_Resort.models.persons.Customer;
 import _Furama_Resort.services.service.ContactService;
+import _Furama_Resort.utils.ReadAndWriteFile;
 
 import java.util.*;
 
@@ -23,7 +24,6 @@ public class ContractServiceImpl implements ContactService {
         while (!bookingQueue.isEmpty()) {
             Booking booking = bookingQueue.poll();
             Customer customer = booking.getCustomer();
-
             System.out.println("Creating Contract for Booking with Information: " + booking);
             System.out.println("Creating Contract for Customer with Information: " + customer);
             System.out.println("Enter Id Contract: ");
@@ -34,12 +34,21 @@ public class ContractServiceImpl implements ContactService {
             String totalPayment = scanner.nextLine();
             Contract contract = new Contract(idContract, booking, prePayment, totalPayment, customer);
             contractList.add(contract);
+            String line = contract.getIdContract() + "," + contract.getIdBooking() + "," + contract.getPrePayment() + ","
+                    + contract.getTotalPayment() + "," + contract.getIdCustomer();
+            ReadAndWriteFile.writeFile("src/_Furama_Resort/data/contract.csv", line);
             System.out.println("Created New Contract Success.");
         }
     }
 
     @Override
     public void displayListContract() {
+//        List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/contract.csv");
+//        contractList.clear();
+//        for (String[] item : list) {
+//            Contract contract = new Contract(item[0], item[1], item[2], item[3], item[4]);
+//            contractList.add(contract);
+//        }
         for (Contract item : contractList) {
             System.out.println(item);
         }

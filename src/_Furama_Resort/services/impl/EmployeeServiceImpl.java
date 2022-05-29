@@ -1,7 +1,9 @@
 package _Furama_Resort.services.impl;
 
 import _Furama_Resort.models.persons.Employee;
+import _Furama_Resort.models.persons.Person;
 import _Furama_Resort.services.service.EmployeeService;
+import _Furama_Resort.utils.ReadAndWriteFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +13,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     private static List<Employee> employeeList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
-    static {
-        employeeList.add(new Employee(111, "Kakarot", 18, "Male", 563, 789123, "kakarot@gmail.com", "kkr563", "University", "Manager", 6000));
-        employeeList.add(new Employee(222, "Chichi", 17, "Female", 798, 564321, "chichi@gmail.com", "ch145", "Colleges", "Monitor", 5400));
-        employeeList.add(new Employee(212, "Gohan", 16, "Male", 632, 452397, "gohan@gmail.com", "gh178", "University", "Management", 5700));
-    }
+//    static {
+//        employeeList.add(new Employee(111, "Kakarot", "1/1/2001", "Male", 563, 789123, "kakarot@gmail.com", "kkr563", "University", "Manager", 6000));
+//    }
 
     @Override
     public void displayListEmployee() {
+        List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/employee.csv");
+        employeeList.clear();
+        for (String[] item : list) {
+            Employee employee = new Employee(Integer.parseInt(item[0]), item[1], item[2], item[3], Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6], item[7], item[8], item[9], Integer.parseInt(item[10]));
+            employeeList.add(employee);
+        }
         System.out.println("List Employee: ");
         for (Employee item : employeeList) {
             System.out.println(item);
@@ -30,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("Enter Name Employee: ");
         String name = scanner.nextLine();
         System.out.println("Enter Birth Employee: ");
-        int birth = Integer.parseInt(scanner.nextLine());
+        String birth = scanner.nextLine();
         System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
         String gender;
         int isGender;
@@ -116,6 +122,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         int id = employeeList.get(employeeList.size() - 1).getId() + 1;
         Employee employee = new Employee(id, name, birth, gender, idCard, phoneNumber, email, employeeId, level, position, salary);
         employeeList.add(employee);
+        String line = employee.getId() + "," + employee.getName() + "," + employee.getBirth() + "," + employee.getGender() + ","
+                + employee.getIdCard() + "," + employee.getPhoneNumber() + "," + employee.getEmail() + "," + employee.getEmployeeId() + ","
+                + employee.getLevel() + "," + employee.getPosition() + "," + employee.getSalary();
+        ReadAndWriteFile.writeFile("src/_Furama_Resort/data/employee.csv", line);
         System.out.println("Added Employee Success.");
     }
 
@@ -129,7 +139,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.println("Enter Name Employee: ");
                 String name = scanner.nextLine();
                 System.out.println("Enter Birth Employee: ");
-                int birth = Integer.parseInt(scanner.nextLine());
+                String birth = scanner.nextLine();
                 System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
                 String gender;
                 int isGender;

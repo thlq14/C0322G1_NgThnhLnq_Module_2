@@ -2,6 +2,7 @@ package _Furama_Resort.services.impl;
 
 import _Furama_Resort.models.persons.Customer;
 import _Furama_Resort.services.service.CustomerService;
+import _Furama_Resort.utils.ReadAndWriteFile;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,14 +12,18 @@ public class CustomerServiceImpl implements CustomerService {
     private static List<Customer> customerList = new LinkedList<>();
     private static Scanner scanner = new Scanner(System.in);
 
-    static {
-        customerList.add(new Customer(412, "Vegeta", 25, "Male", 531, 786214, "vegeta@gmail.com", "veg489", "Diamond", "Saiyan"));
-        customerList.add(new Customer(782, "Bulma", 22, "Female", 426, 753214, "bulma@gmail.com", "bul423", "Platinium", "Earth"));
-        customerList.add(new Customer(176, "Trunks", 19, "Male", 754, 135486, "trunks@gmail.com", "trk634", "Platinium", "Earth"));
-    }
+//    static {
+//        customerList.add(new Customer(412, "Vegeta", "10/10/2000", "Male", 531, 786214, "vegeta@gmail.com", "veg489", "Diamond", "Saiyan"));
+//    }
 
     @Override
     public void displayListCustomer() {
+        List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/customer.csv");
+        customerList.clear();
+        for (String[] item : list) {
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], item[3], Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6],item[7], item[8], item[9]);
+            customerList.add(customer);
+        }
         System.out.println("List Customer: ");
         for (Customer item : customerList) {
             System.out.println(item.toString());
@@ -30,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Enter Name Customer: ");
         String name = scanner.nextLine();
         System.out.println("Enter Birth Customer: ");
-        int birth = Integer.parseInt(scanner.nextLine());
+        String birth = scanner.nextLine();
         System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
         String gender;
         int isGender;
@@ -90,6 +95,10 @@ public class CustomerServiceImpl implements CustomerService {
         int id = customerList.get(customerList.size() - 1).getId() + 1;
         Customer customer = new Customer(id, name, birth, gender, idCard, phoneNumber, email, customerId, customerType, customerAddress);
         customerList.add(customer);
+        String line = customer.getId() + "," + customer.getName() + "," + customer.getBirth() + "," + customer.getGender() + ","
+                + customer.getIdCard() + "," + customer.getPhoneNumber() + "," + customer.getEmail() + "," + customer.getCustomerId() + ","
+                + customer.getCustomerType() + "," + customer.getCustomerAddress();
+        ReadAndWriteFile.writeFile("src/_Furama_Resort/data/customer.csv", line);
         System.out.println("Added Customer Success.");
     }
 
@@ -103,7 +112,7 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("Enter Name Customer: ");
                 String name = scanner.nextLine();
                 System.out.println("Enter Birth Customer: ");
-                int birth = Integer.parseInt(scanner.nextLine());
+                String birth = scanner.nextLine();
                 System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
                 String gender;
                 int isGender;

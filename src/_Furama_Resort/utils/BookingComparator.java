@@ -1,6 +1,6 @@
 package _Furama_Resort.utils;
 
-import _Furama_Resort.models.Booking;
+import _Furama_Resort.models.bookings.Booking;
 import java.util.Comparator;
 
 public class BookingComparator implements Comparator<Booking> {

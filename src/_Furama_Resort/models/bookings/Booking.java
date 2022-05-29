@@ -1,4 +1,4 @@
-package _Furama_Resort.models;
+package _Furama_Resort.models.bookings;
 
 import _Furama_Resort.models.facilitys.Facility;
 import _Furama_Resort.models.persons.Customer;

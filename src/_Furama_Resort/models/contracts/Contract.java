@@ -1,5 +1,6 @@
-package _Furama_Resort.models;
+package _Furama_Resort.models.contracts;
 
+import _Furama_Resort.models.bookings.Booking;
 import _Furama_Resort.models.persons.Customer;
 
 public class Contract {

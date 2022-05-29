@@ -3,7 +3,7 @@ package _Furama_Resort.models.persons;
 public abstract class Person {
     private int Id;
     private String name;
-    private int birth;
+    private String birth;
     private String gender;
     private int idCard;
     private int phoneNumber;
@@ -12,7 +12,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(int id, String name, int birth, String gender, int idCard, int phoneNumber, String email) {
+    public Person(int id, String name, String birth, String gender, int idCard, int phoneNumber, String email) {
         Id = id;
         this.name = name;
         this.birth = birth;
@@ -38,11 +38,11 @@ public abstract class Person {
         this.name = name;
     }
 
-    public int getBirth() {
+    public String getBirth() {
         return birth;
     }
 
-    public void setBirth(int birth) {
+    public void setBirth(String birth) {
         this.birth = birth;
     }
 
