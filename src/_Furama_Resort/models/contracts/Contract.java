@@ -8,12 +8,12 @@ public class Contract {
     private Booking idBooking;
     private String prePayment;
     private String totalPayment;
-    private Customer idCustomer;
+    private String idCustomer;
 
     public Contract() {
     }
 
-    public Contract(String idContract, Booking idBooking, String prePayment, String totalPayment, Customer idCustomer) {
+    public Contract(String idContract, Booking idBooking, String prePayment, String totalPayment, String idCustomer) {
         this.idContract = idContract;
         this.idBooking = idBooking;
         this.prePayment = prePayment;
@@ -53,11 +53,11 @@ public class Contract {
         this.totalPayment = totalPayment;
     }
 
-    public Customer getIdCustomer() {
+    public String getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(Customer idCustomer) {
+    public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
     }
 

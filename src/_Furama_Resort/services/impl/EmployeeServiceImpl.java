@@ -1,7 +1,6 @@
 package _Furama_Resort.services.impl;
 
 import _Furama_Resort.models.persons.Employee;
-import _Furama_Resort.models.persons.Person;
 import _Furama_Resort.services.service.EmployeeService;
 import _Furama_Resort.utils.ReadAndWriteFile;
 
@@ -130,7 +129,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void editEmployeebyId() {
+    public void editEmployeeById() {
         int countEdit = 0;
         System.out.println("Enter ID Employee want to Update: ");
         int inputUpdate = Integer.parseInt(scanner.nextLine());

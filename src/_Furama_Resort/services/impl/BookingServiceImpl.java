@@ -22,12 +22,12 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void displayListBooking() {
-//        List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/booking.csv");
-//        bookingSet.clear();
-//        for (String[] item: list) {
-//            Booking booking = new Booking(Integer.parseInt(item[0]), LocalDate.parse(item[1]), LocalDate.parse(item[2]), item[3], item);
-//            bookingSet.add(booking);
-//        }
+        List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/booking.csv");
+        bookingSet.clear();
+        for (String[] item: list) {
+            Booking booking = new Booking(item[0], LocalDate.parse(item[1]), LocalDate.parse(item[2]), item[3], item[4], item[5]);
+            bookingSet.add(booking);
+        }
         for (Booking item : bookingSet) {
             System.out.println(item); // toString
         }
@@ -39,21 +39,27 @@ public class BookingServiceImpl implements BookingService {
         if (!bookingSet.isEmpty()) {
             id = bookingSet.size();
         }
-
-        Customer customer = chooseCustomer();
-        Facility facility = chooseFacility();
+        System.out.println("Enter Id Booking: ");
+        String bookingId = scanner.nextLine();
         System.out.println("Enter Rental Start Date: ");
         LocalDate startDate = LocalDate.parse(scanner.nextLine());
         System.out.println("Enter Rental End Date: ");
         LocalDate endDate = LocalDate.parse(scanner.nextLine());
-        Booking booking = new Booking(id, startDate, endDate, customer, facility);
+        System.out.println("Enter Id Customer: ");
+        String customerId = chooseCustomer();
+        System.out.println("Enter Name Service : ");
+        String nameService = scanner.nextLine();
+        System.out.println("Enter Id Facility: ");
+        String facilityId = chooseFacility();
+        Booking booking = new Booking(bookingId, startDate, endDate, customerId, nameService, facilityId);
         bookingSet.add(booking);
-        String line = booking.getIdBooking() + "," + booking.getStartDate() + "," + booking.getEndDate() + "," + booking.getCustomer() + "," + booking.getFacility();
+        String line = booking.getBookingId() + "," + booking.getStartDate() + "," + booking.getEndDate() + ","
+                + booking.getCustomerId() + "," + booking.getNameService() + "," + booking.getFacilityId();
         ReadAndWriteFile.writeFile("src/_Furama_Resort/data/booking.csv", line);
         System.out.println("Added Booking Success.");
     }
 
-    public static Customer chooseCustomer() {
+    public static String chooseCustomer() {
         if (customerList.isEmpty()) {
             System.out.println("NOT found Customer.");
         } else {
@@ -64,7 +70,7 @@ public class BookingServiceImpl implements BookingService {
         }
 
         boolean flag = true;
-        Customer customer = null;
+        String customer = null;
         int id;
         while (flag) {
             System.out.println("Enter ID Customer: ");
@@ -72,25 +78,24 @@ public class BookingServiceImpl implements BookingService {
             for (Customer item : customerList) {
                 if (id == item.getId()) {
                     flag = false;
-                    customer = item;
                 }
             }
             if (flag) {
                 System.out.println("Error: Enter ID Customer Again..");
             }
         }
-        return customer;
+        return null;
     }
 
 
-    public static Facility chooseFacility() {
+    public static String chooseFacility() {
         System.out.println("List Facility: ");
         for (Map.Entry<Facility, Integer> item : facilityList.entrySet()) {
             System.out.println(item.getKey()); // toString
         }
 
         boolean check = true;
-        Facility facility = null;
+        String facility = null;
         String id;
         while (check) {
             System.out.println("Enter ID Facility: ");
@@ -98,13 +103,12 @@ public class BookingServiceImpl implements BookingService {
             for (Map.Entry<Facility, Integer> item : facilityList.entrySet()) {
                 if (id.equals(item.getKey().getIdFacility())) {
                     check = false;
-                    facility = item.getKey();
                 }
             }
             if (check) {
                 System.out.println("Error: Enter ID Facility Again..");
             }
         }
-        return facility;
+        return null;
     }
 }

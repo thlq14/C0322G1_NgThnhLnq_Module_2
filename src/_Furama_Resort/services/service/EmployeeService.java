@@ -5,7 +5,7 @@ public interface EmployeeService {
 
     void addNewEmployee();
 
-    void editEmployeebyId();
+    void editEmployeeById();
 
 //    void deleteEmployeeById();
 }

@@ -1,34 +1,33 @@
 package _Furama_Resort.models.bookings;
 
-import _Furama_Resort.models.facilitys.Facility;
-import _Furama_Resort.models.persons.Customer;
-
 import java.time.LocalDate;
 
 public class Booking {
-    private Integer idBooking;
+    private String bookingId;
     private LocalDate startDate;
     private LocalDate endDate;
-    private Customer customer;
-    private Facility facility;
+    private String customerId;
+    private String nameService;
+    private String facilityId;
 
     public Booking() {
     }
 
-    public Booking(Integer idBooking, LocalDate startDate, LocalDate endDate, Customer customer, Facility facility) {
-        this.idBooking = idBooking;
+    public Booking(String bookingId, LocalDate startDate, LocalDate endDate, String customerId, String nameService, String facilityId) {
+        this.bookingId = bookingId;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.customer = customer;
-        this.facility = facility;
+        this.customerId = customerId;
+        this.nameService = nameService;
+        this.facilityId = facilityId;
     }
 
-    public Integer getIdBooking() {
-        return idBooking;
+    public String getBookingId() {
+        return bookingId;
     }
 
-    public void setIdBooking(Integer idBooking) {
-        this.idBooking = idBooking;
+    public void setBookingId(String bookingId) {
+        this.bookingId = bookingId;
     }
 
     public LocalDate getStartDate() {
@@ -47,30 +46,39 @@ public class Booking {
         this.endDate = endDate;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public Facility getFacility() {
-        return facility;
+    public String getNameService() {
+        return nameService;
     }
 
-    public void setFacility(Facility facility) {
-        this.facility = facility;
+    public void setNameService(String nameService) {
+        this.nameService = nameService;
+    }
+
+    public String getFacilityId() {
+        return facilityId;
+    }
+
+    public void setFacilityId(String facilityId) {
+        this.facilityId = facilityId;
     }
 
     @Override
     public String toString() {
         return "Booking {" +
-                "idBooking = " + idBooking +
-                ", startDate = '" + startDate + '\'' +
-                ", endDate = '" + endDate + '\'' +
-                ", customer = " + customer +
-                ", facility = " + facility +
+                "bookingId = " + bookingId +
+                ", startDate = " + startDate +
+                ", endDate = " + endDate +
+                ", customerId = '" + customerId + '\'' +
+                ", nameService = '" + nameService + '\'' +
+                ", facilityId = " + facilityId +
                 '}';
     }
 }

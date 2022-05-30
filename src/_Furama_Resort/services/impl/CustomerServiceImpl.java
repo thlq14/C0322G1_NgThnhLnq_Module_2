@@ -21,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
         List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/customer.csv");
         customerList.clear();
         for (String[] item : list) {
-            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], item[3], Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6],item[7], item[8], item[9]);
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], item[3], Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6], item[7], item[8], item[9]);
             customerList.add(customer);
         }
         System.out.println("List Customer: ");
@@ -100,6 +100,7 @@ public class CustomerServiceImpl implements CustomerService {
                 + customer.getCustomerType() + "," + customer.getCustomerAddress();
         ReadAndWriteFile.writeFile("src/_Furama_Resort/data/customer.csv", line);
         System.out.println("Added Customer Success.");
+        System.err.println("Enter Incorrect Format. Enter Again: ");
     }
 
     @Override

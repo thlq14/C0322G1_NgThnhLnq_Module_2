@@ -71,7 +71,7 @@ public class FuramaController {
                     break;
                 case 3:
                     System.out.println("Edit Employee.");
-                    employeeService.editEmployeebyId();
+                    employeeService.editEmployeeById();
                     break;
                 case 4:
                     System.out.println("Return Main Menu.");
@@ -91,7 +91,6 @@ public class FuramaController {
             System.out.println("2. Add New Customer.");
             System.out.println("3. Edit Customer.");
             System.out.println("4. Return Main Menu.");
-
             try {
                 choose = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {

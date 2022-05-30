@@ -18,12 +18,14 @@ public class FacilityServiceImpl implements FacilityService {
     private static Scanner scanner = new Scanner(System.in);
 
 //    static {
-//        facilityList.put(new Villa("vil685", "Villa qwerty", 784, 794, 3, "Day", "Normal", 20, 5), 0);
 //        facilityList.put(new Villa("vil426", "Villa one", 714, 145, 10, "Night", "Vip", 15, 7), 0);
 //    }
 
     @Override
     public void displayListFacility() {
+        ReadAndWriteFile.readFile("src/_Furama_Resort/data/villa.csv");
+        ReadAndWriteFile.readFile("src/_Furama_Resort/data/house.csv");
+        ReadAndWriteFile.readFile("src/_Furama_Resort/data/room.csv");
         System.out.println("List Facility: ");
         for (Map.Entry<Facility, Integer> item : facilityList.entrySet()) {
             System.out.println(item);
