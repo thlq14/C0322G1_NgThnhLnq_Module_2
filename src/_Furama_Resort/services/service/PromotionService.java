@@ -1,7 +1,7 @@
 package _Furama_Resort.services.service;
 
 public interface PromotionService {
-    void displayListCustomersUseService();
+    void displayUseService();
 
-    void displayListCustomersGetVoucher();
+    void displayGetVoucher();
 }

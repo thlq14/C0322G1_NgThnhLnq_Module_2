@@ -24,6 +24,14 @@ public class Room extends Facility {
     }
 
     @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s",
+                super.getIdFacility(), super.getNameService(), super.getAreaUse(),
+                super.getRentalPrice(), super.getRentalPeopleMax(), super.getStyleRental(),
+                this.getFreeService());
+    }
+
+    @Override
     public String toString() {
         return "Room {" + super.toString() +
                 ", freeService = '" + freeService + '\'' +

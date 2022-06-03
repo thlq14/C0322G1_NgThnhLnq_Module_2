@@ -1,7 +1,7 @@
 package _Furama_Resort.services.service;
 
 public interface BookingService {
-    void displayListBooking();
+    void display();
 
-    void addNewBooking();
+    void add();
 }

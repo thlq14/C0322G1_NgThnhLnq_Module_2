@@ -4,73 +4,79 @@ import _Furama_Resort.models.bookings.Booking;
 import _Furama_Resort.models.facilitys.Facility;
 import _Furama_Resort.models.persons.Customer;
 import _Furama_Resort.services.service.BookingService;
-import _Furama_Resort.utils.BookingComparator;
-import _Furama_Resort.utils.ReadAndWriteFile;
+import _Furama_Resort.utils.comparators.BookingComparator;
+import _Furama_Resort.utils.files.ReadAndWriteFile;
 
 import java.time.LocalDate;
 import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
-    static Scanner scanner = new Scanner(System.in);
-    static Set<Booking> bookingSet = new TreeSet<>(new BookingComparator());
-    static List<Customer> customerList = new ArrayList<>();
-    static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
+    private static Scanner scanner = new Scanner(System.in);
+    private static Set<Booking> bookingSet = new TreeSet<>(new BookingComparator());
+    private static List<Customer> customerList = new ArrayList<>();
+    private static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
+    private static final String PATH_BOOKING = "src/_Furama_Resort/data/booking.csv";
 
-    public Set<Booking> bookingSet() {
+    public static Set<Booking> bookingSet() {
         return bookingSet;
     }
 
     @Override
-    public void displayListBooking() {
-        List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/booking.csv");
-        bookingSet.clear();
-        for (String[] item: list) {
-            Booking booking = new Booking(item[0], LocalDate.parse(item[1]), LocalDate.parse(item[2]), item[3], item[4], item[5]);
-            bookingSet.add(booking);
-        }
+    public void display() {
+        ReadAndWriteFile.readBooking(PATH_BOOKING);
+        System.out.println("List Booking: ");
         for (Booking item : bookingSet) {
             System.out.println(item); // toString
         }
     }
 
     @Override
-    public void addNewBooking() {
+    public void add() {
+        ReadAndWriteFile.readBooking(PATH_BOOKING);
+
         int id = 1;
         if (!bookingSet.isEmpty()) {
             id = bookingSet.size();
         }
+
         System.out.println("Enter Id Booking: ");
         String bookingId = scanner.nextLine();
+
         System.out.println("Enter Rental Start Date: ");
         LocalDate startDate = LocalDate.parse(scanner.nextLine());
+
         System.out.println("Enter Rental End Date: ");
         LocalDate endDate = LocalDate.parse(scanner.nextLine());
+
         System.out.println("Enter Id Customer: ");
         String customerId = chooseCustomer();
+
         System.out.println("Enter Name Service : ");
         String nameService = scanner.nextLine();
+
         System.out.println("Enter Id Facility: ");
         String facilityId = chooseFacility();
-        Booking booking = new Booking(bookingId, startDate, endDate, customerId, nameService, facilityId);
+
+        Booking booking = new Booking(id, bookingId, startDate, endDate, customerId, nameService, facilityId);
         bookingSet.add(booking);
-        String line = booking.getBookingId() + "," + booking.getStartDate() + "," + booking.getEndDate() + ","
-                + booking.getCustomerId() + "," + booking.getNameService() + "," + booking.getFacilityId();
-        ReadAndWriteFile.writeFile("src/_Furama_Resort/data/booking.csv", line);
+
+        ReadAndWriteFile.writeBooking(PATH_BOOKING, bookingSet);
         System.out.println("Added Booking Success.");
     }
 
     public static String chooseCustomer() {
+        ReadAndWriteFile.readCustomer(PATH_BOOKING);
         if (customerList.isEmpty()) {
             System.out.println("NOT found Customer.");
         } else {
             System.out.println("List Customer: ");
             for (Customer item : customerList) {
-                System.out.println(item); // toString
+                System.out.println(item);
             }
         }
 
         boolean flag = true;
-        String customer = null;
+        Customer customer = null;
         int id;
         while (flag) {
             System.out.println("Enter ID Customer: ");
@@ -91,11 +97,10 @@ public class BookingServiceImpl implements BookingService {
     public static String chooseFacility() {
         System.out.println("List Facility: ");
         for (Map.Entry<Facility, Integer> item : facilityList.entrySet()) {
-            System.out.println(item.getKey()); // toString
+            System.out.println(item.getKey());
         }
-
         boolean check = true;
-        String facility = null;
+        Facility facility = null;
         String id;
         while (check) {
             System.out.println("Enter ID Facility: ");

@@ -1,4 +1,4 @@
-package _Furama_Resort.utils;
+package _Furama_Resort.utils.comparators;
 
 import _Furama_Resort.models.bookings.Booking;
 import java.util.Comparator;

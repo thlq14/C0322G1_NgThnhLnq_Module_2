@@ -1,9 +1,9 @@
 package _Furama_Resort.services.service;
 
 public interface ContactService {
-    void createNewContract();
+    void add();
 
-    void displayListContract();
+    void display();
 
-    void editContract();
+    void edit();
 }

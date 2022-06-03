@@ -1,5 +1,8 @@
 package _Furama_Resort.models.persons;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 public class Employee extends Person {
     private String employeeId;
     private String level;
@@ -16,7 +19,7 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public Employee(int id, String name, String birth, String gender, int idCard, int phoneNumber, String email, String employeeId, String level, String position, int salary) {
+    public Employee(int id, String name, LocalDate birth, String gender, int idCard, int phoneNumber, String email, String employeeId, String level, String position, int salary) {
         super(id, name, birth, gender, idCard, phoneNumber, email);
         this.employeeId = employeeId;
         this.level = level;
@@ -54,6 +57,15 @@ public class Employee extends Person {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+
+    @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
+                super.getId(), super.getName(), super.getBirth(), super.getGender(),
+                super.getIdCard(), super.getPhoneNumber(), super.getEmail(),
+                this.getEmployeeId(), this.getLevel(), this.getPosition(), new BigDecimal(getSalary()));
     }
 
     @Override

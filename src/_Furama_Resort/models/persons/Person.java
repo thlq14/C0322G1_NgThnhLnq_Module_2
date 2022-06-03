@@ -1,9 +1,11 @@
 package _Furama_Resort.models.persons;
 
+import java.time.LocalDate;
+
 public abstract class Person {
     private int Id;
     private String name;
-    private String birth;
+    private LocalDate birth;
     private String gender;
     private int idCard;
     private int phoneNumber;
@@ -12,7 +14,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(int id, String name, String birth, String gender, int idCard, int phoneNumber, String email) {
+    public Person(int id, String name, LocalDate birth, String gender, int idCard, int phoneNumber, String email) {
         Id = id;
         this.name = name;
         this.birth = birth;
@@ -38,11 +40,11 @@ public abstract class Person {
         this.name = name;
     }
 
-    public String getBirth() {
+    public LocalDate getBirth() {
         return birth;
     }
 
-    public void setBirth(String birth) {
+    public void setBirth(LocalDate birth) {
         this.birth = birth;
     }
 
@@ -77,6 +79,8 @@ public abstract class Person {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public abstract String getInfo();
 
     @Override
     public String toString() {

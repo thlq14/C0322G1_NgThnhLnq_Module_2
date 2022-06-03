@@ -1,11 +1,8 @@
 package _Furama_Resort.models.contracts;
 
-import _Furama_Resort.models.bookings.Booking;
-import _Furama_Resort.models.persons.Customer;
-
 public class Contract {
     private String idContract;
-    private Booking idBooking;
+    private String idBooking;
     private String prePayment;
     private String totalPayment;
     private String idCustomer;
@@ -13,7 +10,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(String idContract, Booking idBooking, String prePayment, String totalPayment, String idCustomer) {
+    public Contract(String idContract, String idBooking, String prePayment, String totalPayment, String idCustomer) {
         this.idContract = idContract;
         this.idBooking = idBooking;
         this.prePayment = prePayment;
@@ -29,11 +26,11 @@ public class Contract {
         this.idContract = idContract;
     }
 
-    public Booking getIdBooking() {
+    public String getIdBooking() {
         return idBooking;
     }
 
-    public void setIdBooking(Booking idBooking) {
+    public void setIdBooking(String idBooking) {
         this.idBooking = idBooking;
     }
 
@@ -59,6 +56,12 @@ public class Contract {
 
     public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
+    }
+
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s",
+                this.getIdContract(), this.getIdBooking(), this.getPrePayment(),
+                this.getTotalPayment(), this.getIdCustomer());
     }
 
     @Override

@@ -2,7 +2,7 @@ package _Furama_Resort.services.impl;
 
 import _Furama_Resort.models.bookings.Booking;
 import _Furama_Resort.services.service.PromotionService;
-import _Furama_Resort.utils.BookingComparator;
+import _Furama_Resort.utils.comparators.BookingComparator;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -12,12 +12,12 @@ public class PromotionServiceImpl implements PromotionService {
 
 
     @Override
-    public void displayListCustomersUseService() {
+    public void displayUseService() {
 
     }
 
     @Override
-    public void displayListCustomersGetVoucher() {
+    public void displayGetVoucher() {
 
     }
 }

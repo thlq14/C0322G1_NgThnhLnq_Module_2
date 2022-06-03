@@ -10,7 +10,7 @@ public class Booking {
     private String nameService;
     private String facilityId;
 
-    public Booking() {
+    public Booking(int id, String bookingId, LocalDate startDate, LocalDate endDate, String customerId, String nameService, String facilityId) {
     }
 
     public Booking(String bookingId, LocalDate startDate, LocalDate endDate, String customerId, String nameService, String facilityId) {
@@ -68,6 +68,12 @@ public class Booking {
 
     public void setFacilityId(String facilityId) {
         this.facilityId = facilityId;
+    }
+
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s",
+                this.getBookingId(), this.getStartDate(), this.getEndDate(),
+                this.getCustomerId(), this.getNameService(), this.getFacilityId());
     }
 
     @Override

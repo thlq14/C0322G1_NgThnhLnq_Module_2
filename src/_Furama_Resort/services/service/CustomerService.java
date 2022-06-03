@@ -1,11 +1,9 @@
 package _Furama_Resort.services.service;
 
-public interface CustomerService {
-    void displayListCustomer();
+public interface CustomerService extends Service {
+    void display();
 
-    void addNewCustomer();
+    void add();
 
-    void editCustomerById();
-
-//    void deleteCustomerById();
+    void edit();
 }

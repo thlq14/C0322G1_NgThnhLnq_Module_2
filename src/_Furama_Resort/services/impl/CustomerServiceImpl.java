@@ -2,8 +2,10 @@ package _Furama_Resort.services.impl;
 
 import _Furama_Resort.models.persons.Customer;
 import _Furama_Resort.services.service.CustomerService;
-import _Furama_Resort.utils.ReadAndWriteFile;
+import _Furama_Resort.utils.files.ReadAndWriteFile;
+import _Furama_Resort.utils.regex.RegexData;
 
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,58 +14,64 @@ public class CustomerServiceImpl implements CustomerService {
     private static List<Customer> customerList = new LinkedList<>();
     private static Scanner scanner = new Scanner(System.in);
 
-//    static {
-//        customerList.add(new Customer(412, "Vegeta", "10/10/2000", "Male", 531, 786214, "vegeta@gmail.com", "veg489", "Diamond", "Saiyan"));
-//    }
+    private static final String PATH_CUSTOMER = "src/_Furama_Resort/data/customer.csv";
+    private static final String REGEX_BIRTH = "^((2000|2400|2800|(19|2[0-9])(0[48]|[2468][048]|[13579][26]))-02-29)|(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))|(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))|(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$";
 
     @Override
-    public void displayListCustomer() {
-        List<String[]> list = ReadAndWriteFile.readFile("src/_Furama_Resort/data/customer.csv");
-        customerList.clear();
-        for (String[] item : list) {
-            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], item[3], Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6], item[7], item[8], item[9]);
-            customerList.add(customer);
-        }
+    public void display() {
+
+        customerList = ReadAndWriteFile.readCustomer(PATH_CUSTOMER);
+
         System.out.println("List Customer: ");
         for (Customer item : customerList) {
-            System.out.println(item.toString());
+            System.out.println(item);
         }
     }
 
     @Override
-    public void addNewCustomer() {
+    public void add() {
+
+        customerList = ReadAndWriteFile.readCustomer(PATH_CUSTOMER);
+
         System.out.println("Enter Name Customer: ");
         String name = scanner.nextLine();
-        System.out.println("Enter Birth Customer: ");
-        String birth = scanner.nextLine();
-        System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
+
+        System.out.println("Enter Birth Customer (Format: yyyy-MM-dd): ");
+        LocalDate birth = LocalDate.parse(RegexData.regexAge(scanner.nextLine(), REGEX_BIRTH));
+
+        System.out.println("Enter Gender Customer: 1. Male; 2. Female; 3. Other Genders.");
         String gender;
         int isGender;
         do {
             isGender = Integer.parseInt(scanner.nextLine());
             switch (isGender) {
                 case 1:
-                    gender = "Male.";
+                    gender = "Male";
                     break;
                 case 2:
-                    gender = "Female.";
+                    gender = "Female";
                     break;
                 case 3:
-                    gender = "Other Genders.";
+                    gender = "Other Genders";
                     break;
                 default:
                     gender = "Error: Enter Again.. (1 -> 4)";
                     break;
             }
         } while (isGender < 1 || isGender > 3);
-        System.out.println("Enter ID Customer: ");
+
+        System.out.println("Enter ID Card: ");
         int idCard = Integer.parseInt(scanner.nextLine());
+
         System.out.println("Enter Phone Number Customer: ");
         int phoneNumber = Integer.parseInt(scanner.nextLine());
+
         System.out.println("Enter Email Customer: ");
         String email = scanner.nextLine();
+
         System.out.println("Enter Id Customer: ");
         String customerId = scanner.nextLine();
+
         System.out.println("Enter Type Customer: 1. Diamond; 2. Platinum; 3. Gold; 4. Silver; 5. Member.");
         String customerType;
         int chooseType;
@@ -71,49 +79,67 @@ public class CustomerServiceImpl implements CustomerService {
             chooseType = Integer.parseInt(scanner.nextLine());
             switch (chooseType) {
                 case 1:
-                    customerType = "Diamond.";
+                    customerType = "Diamond";
                     break;
                 case 2:
-                    customerType = "Platinum.";
+                    customerType = "Platinum";
                     break;
                 case 3:
-                    customerType = "Gold.";
+                    customerType = "Gold";
                     break;
                 case 4:
-                    customerType = "Silver.";
+                    customerType = "Silver";
                     break;
                 case 5:
-                    customerType = "Member.";
+                    customerType = "Member";
                     break;
                 default:
                     customerType = "Error: Enter Again.. (1 -> 5)";
                     break;
             }
         } while (chooseType < 1 || chooseType > 5);
+
         System.out.println("Enter Address Customer: ");
         String customerAddress = scanner.nextLine();
-        int id = customerList.get(customerList.size() - 1).getId() + 1;
+
+        int id = 0;
+        int max = customerList.get(0).getId();
+        if (max == 0) {
+            id = 1;
+        } else {
+            for (int i = 0; i < customerList.size(); i++) {
+                if (customerList.get(i).getId() > max) {
+                    max = customerList.get(i).getId();
+                }
+            }
+        }
+        id = max + 1;
+
         Customer customer = new Customer(id, name, birth, gender, idCard, phoneNumber, email, customerId, customerType, customerAddress);
         customerList.add(customer);
-        String line = customer.getId() + "," + customer.getName() + "," + customer.getBirth() + "," + customer.getGender() + ","
-                + customer.getIdCard() + "," + customer.getPhoneNumber() + "," + customer.getEmail() + "," + customer.getCustomerId() + ","
-                + customer.getCustomerType() + "," + customer.getCustomerAddress();
-        ReadAndWriteFile.writeFile("src/_Furama_Resort/data/customer.csv", line);
+
+        ReadAndWriteFile.writeCustomer(PATH_CUSTOMER, customerList);
         System.out.println("Added Customer Success.");
-        System.err.println("Enter Incorrect Format. Enter Again: ");
     }
 
     @Override
-    public void editCustomerById() {
+    public void edit() {
+
+        customerList.clear();
+        customerList = ReadAndWriteFile.readCustomer(PATH_CUSTOMER);
+
         int countEdit = 0;
         System.out.println("Enter ID Customer want to Update: ");
         int inputUpdate = Integer.parseInt(scanner.nextLine());
+
         for (int i = 0; i < customerList.size(); i++) {
             if (customerList.get(i).getId() == inputUpdate) {
                 System.out.println("Enter Name Customer: ");
                 String name = scanner.nextLine();
-                System.out.println("Enter Birth Customer: ");
-                String birth = scanner.nextLine();
+
+                System.out.println("Enter Birth Customer (Format: yyyy-MM-dd): ");
+                LocalDate birth = LocalDate.parse(RegexData.regexAge(scanner.nextLine(), REGEX_BIRTH));
+
                 System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
                 String gender;
                 int isGender;
@@ -121,27 +147,32 @@ public class CustomerServiceImpl implements CustomerService {
                     isGender = Integer.parseInt(scanner.nextLine());
                     switch (isGender) {
                         case 1:
-                            gender = "Male.";
+                            gender = "Male";
                             break;
                         case 2:
-                            gender = "Female.";
+                            gender = "Female";
                             break;
                         case 3:
-                            gender = "Other Genders.";
+                            gender = "Other Genders";
                             break;
                         default:
                             gender = "Error: Enter Again.. (1 -> 4)";
                             break;
                     }
                 } while (isGender < 1 || isGender > 3);
-                System.out.println("Enter ID Customer: ");
+
+                System.out.println("Enter ID Card: ");
                 int idCard = Integer.parseInt(scanner.nextLine());
+
                 System.out.println("Enter Phone Number Customer: ");
                 int phoneNumber = Integer.parseInt(scanner.nextLine());
+
                 System.out.println("Enter Email Customer: ");
                 String email = scanner.nextLine();
+
                 System.out.println("Enter Id Customer: ");
                 String customerId = scanner.nextLine();
+
                 System.out.println("Enter Type Customer: 1. Diamond; 2. Platinum; 3. Gold; 4. Silver; 5. Member.");
                 String customerType;
                 int chooseType;
@@ -149,32 +180,42 @@ public class CustomerServiceImpl implements CustomerService {
                     chooseType = Integer.parseInt(scanner.nextLine());
                     switch (chooseType) {
                         case 1:
-                            customerType = "Diamond.";
+                            customerType = "Diamond";
                             break;
                         case 2:
-                            customerType = "Platinum.";
+                            customerType = "Platinum";
                             break;
                         case 3:
-                            customerType = "Gold.";
+                            customerType = "Gold";
                             break;
                         case 4:
-                            customerType = "Silver.";
+                            customerType = "Silver";
                             break;
                         case 5:
-                            customerType = "Member.";
+                            customerType = "Member";
                             break;
                         default:
                             customerType = "Error: Enter Again.. (1 -> 5)";
                             break;
                     }
-                } while (chooseType < 1 || chooseType > 6);
+                } while (chooseType < 1 || chooseType > 5);
+
                 System.out.println("Enter Address Customer: ");
                 String customerAddress = scanner.nextLine();
-                int id = customerList.get(customerList.size() - 1).getId();
-                Customer customer = new Customer(id, name, birth, gender, idCard, phoneNumber, email, customerId, customerType, customerAddress);
-                customerList.set(i, customer);
+
+                customerList.get(i).setName(name);
+                customerList.get(i).setBirth(birth);
+                customerList.get(i).setGender(gender);
+                customerList.get(i).setIdCard(idCard);
+                customerList.get(i).setPhoneNumber(phoneNumber);
+                customerList.get(i).setEmail(email);
+                customerList.get(i).setCustomerId(customerId);
+                customerList.get(i).setCustomerType(customerType);
+                customerList.get(i).setCustomerAddress(customerAddress);
+
+                ReadAndWriteFile.writeCustomer(PATH_CUSTOMER, customerList);
                 countEdit++;
-                System.out.println("Updated Customer Success.");
+                System.out.println("Edited Customer Success.");
             }
         }
         if (countEdit == 0) {
@@ -182,21 +223,3 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 }
-//
-//    @Override
-//    public void deleteCustomerById() {
-//        System.out.println("Enter ID Customer want to Delete: ");
-//        int inputRemove = Integer.parseInt(scanner.nextLine());
-//        for (int i = 0; i < customerList.size(); i++) {
-//            if (customerList.get(i).getId() == inputRemove) {
-//                for (int j = i + 1; j < customerList.size(); j++) {
-//                    customerList.remove(customerList.get(i));
-//                    break;
-//                }
-//                System.out.println("Delete Customer Success.");
-//                inputRemove++;
-//            }
-//        }
-//        if (inputRemove == 0)
-//            System.out.println("ID NOT found!!");
-//    }

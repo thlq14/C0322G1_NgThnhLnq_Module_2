@@ -41,8 +41,16 @@ public class Villa extends Facility {
         return floorVilla;
     }
 
-    public void setFloorVilla(int floor) {
+    public void setFloorVilla(int floorVilla) {
         this.floorVilla = floorVilla;
+    }
+
+    @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
+                super.getIdFacility(), super.getNameService(), super.getAreaUse(),
+                super.getRentalPrice(), super.getRentalPeopleMax(), super.getStyleRental(),
+                this.getStandardVilla(), this.getAreaPool(), this.getFloorVilla());
     }
 
     @Override

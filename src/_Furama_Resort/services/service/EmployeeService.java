@@ -1,11 +1,9 @@
 package _Furama_Resort.services.service;
 
-public interface EmployeeService {
-    void displayListEmployee();
+public interface EmployeeService extends Service {
+    void display();
 
-    void addNewEmployee();
+    void add();
 
-    void editEmployeeById();
-
-//    void deleteEmployeeById();
+    void edit();
 }
