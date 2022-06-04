@@ -95,7 +95,6 @@ public class CustomerServiceImpl implements CustomerService {
                     break;
                 default:
                     customerType = "Error: Enter Again.. (1 -> 5)";
-                    break;
             }
         } while (chooseType < 1 || chooseType > 5);
 

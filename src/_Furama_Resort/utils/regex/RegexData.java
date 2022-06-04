@@ -227,28 +227,13 @@ public class RegexData {
         return RegexData.regexInt(REGEX_INT);
     }
 
-    public static String inputStyleRentalVilla() {
-        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
-        return RegexData.regexIdVilla(REGEX_INT);
-    }
-
-    public static String inputStyleRentalHouse() {
-        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
-        return RegexData.regexIdVilla(REGEX_INT);
-    }
-
-    public static String inputStyleRentalRoom() {
-        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
-        return RegexData.regexIdVilla(REGEX_INT);
-    }
-
     public static String inputStandardVilla() {
         System.out.println("Enter Standard Villa: ");
-        return RegexData.regexIdVilla(REGEX_INT);
+        return RegexData.regexIdVilla(REGEX_STR);
     }
 
     public static String inputStandardHouse() {
         System.out.println("Enter Standard House: ");
-        return RegexData.regexIdVilla(REGEX_INT);
+        return RegexData.regexIdVilla(REGEX_STR);
     }
 }

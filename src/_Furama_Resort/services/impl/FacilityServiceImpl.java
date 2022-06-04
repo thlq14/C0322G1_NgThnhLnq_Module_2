@@ -58,7 +58,28 @@ public class FacilityServiceImpl implements FacilityService {
 
         int rentalPeopleMax = Integer.parseInt(RegexData.inputPeopleMax());
 
-        String styleRental = RegexData.inputStyleRentalVilla();
+        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
+        String styleRental;
+        int chooseStyle;
+        do {
+            chooseStyle = Integer.parseInt(scanner.nextLine());
+            switch (chooseStyle) {
+                case 1:
+                    styleRental = "Year";
+                    break;
+                case 2:
+                    styleRental = "Month";
+                    break;
+                case 3:
+                    styleRental = "Day";
+                    break;
+                case 4:
+                    styleRental = "Hour";
+                    break;
+                default:
+                    styleRental = "Error: Enter Again: ";
+            }
+        } while (chooseStyle < 1 || chooseStyle > 4);
 
         String standardVilla = RegexData.inputStandardVilla();
 
@@ -88,7 +109,28 @@ public class FacilityServiceImpl implements FacilityService {
 
         int rentalPeopleMax = Integer.parseInt(RegexData.inputPeopleMax());
 
-        String styleRental = RegexData.inputStyleRentalHouse();
+        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
+        String styleRental;
+        int chooseStyle;
+        do {
+            chooseStyle = Integer.parseInt(scanner.nextLine());
+            switch (chooseStyle) {
+                case 1:
+                    styleRental = "Year";
+                    break;
+                case 2:
+                    styleRental = "Month";
+                    break;
+                case 3:
+                    styleRental = "Day";
+                    break;
+                case 4:
+                    styleRental = "Hour";
+                    break;
+                default:
+                    styleRental = "Error: Enter Again: ";
+            }
+        } while (chooseStyle < 1 || chooseStyle > 4);
 
         String standardHouse = RegexData.inputStandardHouse();
 
@@ -116,7 +158,28 @@ public class FacilityServiceImpl implements FacilityService {
 
         int rentalPeopleMax = Integer.parseInt(RegexData.inputPeopleMax());
 
-        String styleRental = RegexData.inputStyleRentalRoom();
+        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
+        String styleRental;
+        int chooseStyle;
+        do {
+            chooseStyle = Integer.parseInt(scanner.nextLine());
+            switch (chooseStyle) {
+                case 1:
+                    styleRental = "Year";
+                    break;
+                case 2:
+                    styleRental = "Month";
+                    break;
+                case 3:
+                    styleRental = "Day";
+                    break;
+                case 4:
+                    styleRental = "Hour";
+                    break;
+                default:
+                    styleRental = "Error: Enter Again: ";
+            }
+        } while (chooseStyle < 1 || chooseStyle > 4);
 
         System.out.println("Enter Free Service: ");
         String freeService = scanner.nextLine();

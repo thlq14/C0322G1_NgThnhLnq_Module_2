@@ -185,7 +185,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                             break;
                         default:
                             gender = "Error: Enter Again.. (1 -> 4)";
-                            break;
                     }
                 } while (isGender < 1 || isGender > 3);
 
