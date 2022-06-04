@@ -3,9 +3,9 @@ package _Furama_Resort.services.impl;
 import _Furama_Resort.models.persons.Employee;
 import _Furama_Resort.services.service.EmployeeService;
 import _Furama_Resort.utils.files.ReadAndWriteFile;
-import _Furama_Resort.utils.regex.RegexData;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,14 +15,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     private static Scanner scanner = new Scanner(System.in);
 
     private static final String PATH_EMPLOYEE = "src/_Furama_Resort/data/employee.csv";
-    private static final String REGEX_BIRTH = "^((2000|2400|2800|(19|2[0-9])(0[48]|[2468][048]|[13579][26]))-02-29)|(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))|(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))|(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$";
-
-    /*
-    ^((2000|2400|2800|(19|2[0-9])(0[48]|[2468][048]|[13579][26]))-02-29)$"        29-2
-       "|^(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))$"                     28-2
-       "|^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$"     31
-       "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$              30
-     */
 
     @Override
     public void display() {
@@ -43,8 +35,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("Enter Name Employee: ");
         String name = scanner.nextLine();
 
-        System.out.println("Enter Birth Employee (Format: yyyy-MM-dd): ");
-        LocalDate birth = LocalDate.parse(RegexData.regexAge(scanner.nextLine(), REGEX_BIRTH));
+        System.out.println("Enter Birth Employee..Format: dd/MM/yyyy: ");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate birth = LocalDate.parse(scanner.nextLine(), dateTimeFormatter);
 
         System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
         String gender;
@@ -136,15 +129,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("Enter Salary Employee: ");
         int salary = Integer.parseInt(scanner.nextLine());
 
-//        int id = 0;
-//        if (employeeList.size() == 0) {
-//            id = 1;
-//        } else {
-//            id = employeeList.get(employeeList.size() - 1).getId() + 1;
-//        }
         int id = 0;
-        int max = employeeList.get(0).getId();
-        if (max == 0) {
+        int max = 0;
+        if (employeeList == null) {
             id = 1;
         } else {
             for (int i = 0; i < employeeList.size(); i++) {
@@ -152,8 +139,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                     max = employeeList.get(i).getId();
                 }
             }
+            id = max + 1;
         }
-        id = max + 1;
 
         Employee employee = new Employee(id, name, birth, gender, idCard, phoneNumber, email, employeeId, level, position, salary);
         employeeList.add(employee);
@@ -177,8 +164,9 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.println("Enter Name Employee: ");
                 String name = scanner.nextLine();
 
-                System.out.println("Enter Birth Employee (Format: yyyy-MM-dd): ");
-                LocalDate birth = LocalDate.parse(RegexData.regexAge(scanner.nextLine(), REGEX_BIRTH));
+                System.out.println("Enter Birth Employee..Format: dd/MM/yyyy: ");
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate birth = LocalDate.parse(scanner.nextLine(), dateTimeFormatter);
 
                 System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
                 String gender;

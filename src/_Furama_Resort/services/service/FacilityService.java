@@ -3,9 +3,9 @@ package _Furama_Resort.services.service;
 public interface FacilityService {
     void display();
 
-    void addNewVilla();
+    void addVilla();
 
-    void addNewHouse();
+    void addHouse();
 
-    void addNewRoom();
+    void addRoom();
 }

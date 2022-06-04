@@ -162,7 +162,7 @@ public class RegexData {
         while (check) {
             try {
                 if (Pattern.matches(regex, temp)) {
-                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     LocalDate age = LocalDate.parse(temp, dateTimeFormatter);
                     LocalDate now = LocalDate.now();
                     int current = Period.between(age, now).getYears();
@@ -228,27 +228,27 @@ public class RegexData {
     }
 
     public static String inputStyleRentalVilla() {
-        System.out.println("Enter Style Rental: ");
-        return RegexData.regexIdVilla(REGEX_ID_VILLA);
+        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
+        return RegexData.regexIdVilla(REGEX_INT);
     }
 
     public static String inputStyleRentalHouse() {
-        System.out.println("Enter Style Rental: ");
-        return RegexData.regexIdHouse(REGEX_ID_HOUSE);
+        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
+        return RegexData.regexIdVilla(REGEX_INT);
     }
 
     public static String inputStyleRentalRoom() {
-        System.out.println("Enter Style Rental: ");
-        return RegexData.regexIdRoom(REGEX_ID_ROOM);
+        System.out.println("Enter Style Rental: Rental By: 1. Years; 2. Months; 3. Days; 4. Hours: ");
+        return RegexData.regexIdVilla(REGEX_INT);
     }
 
     public static String inputStandardVilla() {
         System.out.println("Enter Standard Villa: ");
-        return RegexData.regexIdVilla(REGEX_ID_VILLA);
+        return RegexData.regexIdVilla(REGEX_INT);
     }
 
     public static String inputStandardHouse() {
         System.out.println("Enter Standard House: ");
-        return RegexData.regexIdHouse(REGEX_ID_HOUSE);
+        return RegexData.regexIdVilla(REGEX_INT);
     }
 }

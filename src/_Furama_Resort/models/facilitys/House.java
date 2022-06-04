@@ -41,6 +41,7 @@ public class House extends Facility {
                 super.getRentalPrice(), super.getRentalPeopleMax(), super.getStyleRental(),
                 this.getStandardHouse(), this.getFloorHouse());
     }
+
     @Override
     public String toString() {
         return "House {" + super.toString() +

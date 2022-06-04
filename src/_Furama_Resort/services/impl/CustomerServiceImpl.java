@@ -3,9 +3,9 @@ package _Furama_Resort.services.impl;
 import _Furama_Resort.models.persons.Customer;
 import _Furama_Resort.services.service.CustomerService;
 import _Furama_Resort.utils.files.ReadAndWriteFile;
-import _Furama_Resort.utils.regex.RegexData;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,7 +15,6 @@ public class CustomerServiceImpl implements CustomerService {
     private static Scanner scanner = new Scanner(System.in);
 
     private static final String PATH_CUSTOMER = "src/_Furama_Resort/data/customer.csv";
-    private static final String REGEX_BIRTH = "^((2000|2400|2800|(19|2[0-9])(0[48]|[2468][048]|[13579][26]))-02-29)|(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))|(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))|(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$";
 
     @Override
     public void display() {
@@ -36,8 +35,9 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Enter Name Customer: ");
         String name = scanner.nextLine();
 
-        System.out.println("Enter Birth Customer (Format: yyyy-MM-dd): ");
-        LocalDate birth = LocalDate.parse(RegexData.regexAge(scanner.nextLine(), REGEX_BIRTH));
+        System.out.println("Enter Birth Customer (Format: dd/MM/yyyy): ");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate birth = LocalDate.parse(scanner.nextLine(), dateTimeFormatter);
 
         System.out.println("Enter Gender Customer: 1. Male; 2. Female; 3. Other Genders.");
         String gender;
@@ -103,8 +103,8 @@ public class CustomerServiceImpl implements CustomerService {
         String customerAddress = scanner.nextLine();
 
         int id = 0;
-        int max = customerList.get(0).getId();
-        if (max == 0) {
+        int max = 0;
+        if (customerList == null) {
             id = 1;
         } else {
             for (int i = 0; i < customerList.size(); i++) {
@@ -112,8 +112,8 @@ public class CustomerServiceImpl implements CustomerService {
                     max = customerList.get(i).getId();
                 }
             }
+            id = max + 1;
         }
-        id = max + 1;
 
         Customer customer = new Customer(id, name, birth, gender, idCard, phoneNumber, email, customerId, customerType, customerAddress);
         customerList.add(customer);
@@ -137,8 +137,9 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("Enter Name Customer: ");
                 String name = scanner.nextLine();
 
-                System.out.println("Enter Birth Customer (Format: yyyy-MM-dd): ");
-                LocalDate birth = LocalDate.parse(RegexData.regexAge(scanner.nextLine(), REGEX_BIRTH));
+                System.out.println("Enter Birth Customer (Format: dd/MM/yyyy): ");
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate birth = LocalDate.parse(scanner.nextLine(), dateTimeFormatter);
 
                 System.out.println("Enter Gender Employee: 1. Male; 2. Female; 3. Other Genders.");
                 String gender;

@@ -8,6 +8,7 @@ import _Furama_Resort.utils.comparators.BookingComparator;
 import _Furama_Resort.utils.files.ReadAndWriteFile;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
@@ -43,10 +44,12 @@ public class BookingServiceImpl implements BookingService {
         String bookingId = scanner.nextLine();
 
         System.out.println("Enter Rental Start Date: ");
-        LocalDate startDate = LocalDate.parse(scanner.nextLine());
+        DateTimeFormatter dateStart = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate startDate = LocalDate.parse(scanner.nextLine(), dateStart);
 
         System.out.println("Enter Rental End Date: ");
-        LocalDate endDate = LocalDate.parse(scanner.nextLine());
+        DateTimeFormatter dateEnd = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate endDate = LocalDate.parse(scanner.nextLine(), dateEnd);
 
         System.out.println("Enter Id Customer: ");
         String customerId = chooseCustomer();

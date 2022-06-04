@@ -1,6 +1,6 @@
-package _Extra_Exercises._codegym_management.utils.impl;
+package _Extra_Exercises._codegym_management.services.impl;
 
-import _Extra_Exercises._codegym_management.utils.service.StudentService;
+import _Extra_Exercises._codegym_management.services.service.StudentService;
 
 public class StudentServiceImpl implements StudentService {
 

@@ -256,15 +256,15 @@ public class FuramaController {
                 switch (choose) {
                     case 1:
                         System.out.println("Add New Villa: ");
-                        facilityService.addNewVilla();
+                        facilityService.addVilla();
                         break;
                     case 2:
                         System.out.println("Add New House: ");
-                        facilityService.addNewHouse();
+                        facilityService.addHouse();
                         break;
                     case 3:
                         System.out.println("Add New Room: ");
-                        facilityService.addNewRoom();
+                        facilityService.addRoom();
                         break;
                     case 4:
                         System.out.println("Back To Menu.");
@@ -278,6 +278,36 @@ public class FuramaController {
                 System.err.println("Enter Correct Number..(1 - 4).");
             }
         }
+    }
+
+    public static String addStyleRental() {
+        String chooseStyle;
+        do {
+            try {
+                System.out.println("_____Style Rental_____" +
+                        "1. Rental By Years." +
+                        "2. Rental By Months." +
+                        "3. Rental By Days." +
+                        "4. Rental By Hours." +
+                        "Choose Option: ");
+                chooseStyle = scanner.nextLine();
+                switch (chooseStyle) {
+                    case "1":
+                        return "Years";
+                    case "2":
+                        return "Months";
+                    case "3":
+                        return "Days";
+                    case "4":
+                        return "Hours";
+                    default:
+                        return "Error: Enter Again: (1 - 4): ";
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Enter Again: ");
+            }
+        }
+        while (true);
     }
 }
 

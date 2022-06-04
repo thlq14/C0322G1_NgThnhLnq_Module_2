@@ -44,7 +44,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
-    public void addNewVilla() {
+    public void addVilla() {
 
         villas = ReadAndWriteFile.readVilla(PATH_VILLA);
 
@@ -74,7 +74,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
-    public void addNewHouse() {
+    public void addHouse() {
 
         houses = ReadAndWriteFile.readHouse(PATH_HOUSE);
 
@@ -102,7 +102,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
-    public void addNewRoom() {
+    public void addRoom() {
 
         rooms = ReadAndWriteFile.readRoom(PATH_ROOM);
 
@@ -126,7 +126,5 @@ public class FacilityServiceImpl implements FacilityService {
 
         ReadAndWriteFile.writeRoom(PATH_ROOM, rooms);
         System.out.println("Added Room Success.");
-    }
-    public void displayMaintain() {
     }
 }

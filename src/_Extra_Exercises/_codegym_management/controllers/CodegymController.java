@@ -1,20 +1,25 @@
 package _Extra_Exercises._codegym_management.controllers;
 
+import _Extra_Exercises._codegym_management.services.impl.StudentServiceImpl;
+import _Extra_Exercises._codegym_management.services.impl.TeacherServiceImpl;
+
 import java.util.Scanner;
 
 public class CodegymController {
     static Scanner scanner = new Scanner(System.in);
+    static TeacherServiceImpl teacherService = new TeacherServiceImpl();
+    static StudentServiceImpl studentService = new StudentServiceImpl();
 
     public static void displayMainMenu() {
         int choose = 0;
         do {
             try {
-                System.out.println("_____CodeGym Management_____" +
-                        "1. Add New Teachers or Students: " +
-                        "2. Remove Teachers or Students: " +
-                        "3. Display List Teachers or Students: " +
-                        "4. Find Teachers or Students: " +
-                        "5. Exit. " +
+                System.out.println("_____CodeGym Management_____\n" +
+                        "1. Add New Teachers or Students: \n" +
+                        "2. Remove Teachers or Students: \n" +
+                        "3. Display List Teachers or Students: \n" +
+                        "4. Find Teachers or Students: \n" +
+                        "5. Exit. \n" +
                         "Choose Options: ");
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
@@ -48,14 +53,17 @@ public class CodegymController {
         int choose = 0;
         do {
             try {
-                System.out.println("_____Add_____" +
-                        "1. Add New Teacher: " +
-                        "2. Add New Student: " +
-                        "3. Return Menu: ");
+                System.out.println("_____Add_____\n" +
+                        "1. Add New Teacher: \n" +
+                        "2. Add New Student: \n" +
+                        "3. Return Menu: \n" +
+                        "Choose Options: ");
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
-
+                        System.out.println("Add New Teacher: ");
+                        teacherService.add();
+                        break;
                     case 2:
 
                     case 3:
@@ -73,10 +81,11 @@ public class CodegymController {
         int choose = 0;
         do {
             try {
-                System.out.println("_____Display_____" +
-                        "1. Display Teacher: " +
-                        "2. Display Student: " +
-                        "3. Return Menu: ");
+                System.out.println("_____Display_____\n" +
+                        "1. Display Teacher: \n" +
+                        "2. Display Student: \n" +
+                        "3. Return Menu: \n" +
+                        "Choose Options: ");
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
@@ -99,10 +108,11 @@ public class CodegymController {
         int choose = 0;
         do {
             try {
-                System.out.println("_____Remove_____" +
-                        "1. Remove Teacher: " +
-                        "2. Remove Student: " +
-                        "3. Return Menu: ");
+                System.out.println("_____Remove_____\n" +
+                        "1. Remove Teacher: \n" +
+                        "2. Remove Student: \n" +
+                        "3. Return Menu: \n" +
+                        "Choose Options: ");
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
@@ -122,10 +132,11 @@ public class CodegymController {
         int choose = 0;
         do {
             try {
-                System.out.println("_____Find_____" +
-                        "1. Find Teacher: " +
-                        "2. Find Student: " +
-                        "3. Return Menu: ");
+                System.out.println("_____Find_____\n" +
+                        "1. Find Teacher: \n" +
+                        "2. Find Student: \n" +
+                        "3. Return Menu: \n" +
+                        "Choose Options: ");
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
@@ -145,9 +156,10 @@ public class CodegymController {
         int choose = 0;
         do {
             try {
-                System.out.println("Are You Sure Delete: " +
-                        "1. Yes: " +
-                        "2. No: ");
+                System.out.println("Are You Sure Delete: \n" +
+                        "1. Yes: \n" +
+                        "2. No: \n" +
+                        "Choose Options: ");
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:

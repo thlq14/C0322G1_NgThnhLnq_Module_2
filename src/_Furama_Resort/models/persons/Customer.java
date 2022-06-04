@@ -47,7 +47,6 @@ public class Customer extends Person {
         this.customerAddress = customerAddress;
     }
 
-
     @Override
     public String getInfo() {
         return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
