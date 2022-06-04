@@ -8,7 +8,9 @@ import _Furama_Resort.services.service.FacilityService;
 import _Furama_Resort.utils.files.ReadAndWriteFile;
 import _Furama_Resort.utils.regex.RegexData;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class FacilityServiceImpl implements FacilityService {
     private static Map<Facility, Integer> facilityList = new LinkedHashMap<>();

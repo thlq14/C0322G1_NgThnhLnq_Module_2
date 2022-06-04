@@ -12,12 +12,12 @@ public class PromotionServiceImpl implements PromotionService {
 
 
     @Override
-    public void displayUseService() {
+    public void displayService() {
 
     }
 
     @Override
-    public void displayGetVoucher() {
+    public void displayVoucher() {
 
     }
 }

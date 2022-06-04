@@ -12,7 +12,7 @@ public class CodegymController {
 
     public static void displayMainMenu() {
         int choose = 0;
-        do {
+        while (true) {
             try {
                 System.out.println("_____CodeGym Management_____\n" +
                         "1. Add New Teachers or Students: \n" +
@@ -39,6 +39,8 @@ public class CodegymController {
                         System.out.println("Find Menu.");
                         findMenu();
                         break;
+                    case  5:
+                        System.exit(0);
                     default:
                         System.out.println("Error: Enter Again..(1 - 5):");
                 }
@@ -46,12 +48,12 @@ public class CodegymController {
                 e.printStackTrace();
                 System.out.println("Error: Incorrect Format..Enter Number (1 - 6):");
             }
-        } while (true);
+        }
     }
 
     public static void addMenu() {
         int choose = 0;
-        do {
+        while (true) {
             try {
                 System.out.println("_____Add_____\n" +
                         "1. Add New Teacher: \n" +
@@ -65,8 +67,12 @@ public class CodegymController {
                         teacherService.add();
                         break;
                     case 2:
-
+                        studentService.add();
+                        break;
                     case 3:
+                        System.out.println("Return Main Menu: ");
+                        displayMainMenu();
+                        return;
                     default:
                         System.out.println("Error: Enter Again..(1 - 3):");
                 }
@@ -74,12 +80,12 @@ public class CodegymController {
                 e.printStackTrace();
                 System.out.println("Error: Incorrect Format..Enter Number (1 - 3):");
             }
-        } while (true);
+        }
     }
 
     public static void displayMenu() {
         int choose = 0;
-        do {
+        while (true) {
             try {
                 System.out.println("_____Display_____\n" +
                         "1. Display Teacher: \n" +
@@ -89,11 +95,17 @@ public class CodegymController {
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
-
+                        System.out.println("List Teacher: ");
+                        teacherService.display();
+                        break;
                     case 2:
-
+                        System.out.println("List Student: ");
+                        studentService.display();
+                        break;
                     case 3:
-
+                        System.out.println("Return Main Menu: ");
+                        displayMainMenu();
+                        return;
                     default:
                         System.out.println("Error: Enter Again..(1 - 3):");
                 }
@@ -101,12 +113,12 @@ public class CodegymController {
                 e.printStackTrace();
                 System.out.println("Error: Incorrect Format..Enter Number (1 - 3):");
             }
-        } while (true);
+        }
     }
 
     public static void removeMenu() {
         int choose = 0;
-        do {
+        while (true) {
             try {
                 System.out.println("_____Remove_____\n" +
                         "1. Remove Teacher: \n" +
@@ -116,8 +128,17 @@ public class CodegymController {
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
+                        System.out.println("Remove Teacher: ");
+                        confirmRemoveTeacher();
+                        break;
                     case 2:
+                        System.out.println("Remove Student: ");
+                        confirmRemoveTeacher();
+                        break;
                     case 3:
+                        System.out.println("Return Main Menu: ");
+                        displayMainMenu();
+                        return;
                     default:
                         System.out.println("Error: Enter Again..(1 - 3):");
                 }
@@ -125,12 +146,12 @@ public class CodegymController {
                 e.printStackTrace();
                 System.out.println("Error: Incorrect Format..Enter Number (1 - 3):");
             }
-        } while (true);
+        }
     }
 
     public static void findMenu() {
         int choose = 0;
-        do {
+        while (true) {
             try {
                 System.out.println("_____Find_____\n" +
                         "1. Find Teacher: \n" +
@@ -140,8 +161,17 @@ public class CodegymController {
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
+                        System.out.println("Find Teacher: ");
+                        teacherService.find();
+                        break;
                     case 2:
+                        System.out.println("Find Student: ");
+                        studentService.find();
+                        break;
                     case 3:
+                        System.out.println("Return Main Menu: ");
+                        displayMainMenu();
+                        return;
                     default:
                         System.out.println("Error: Enter Again..(1 - 3):");
                 }
@@ -149,21 +179,26 @@ public class CodegymController {
                 e.printStackTrace();
                 System.out.println("Error: Incorrect Format..Enter Number (1 - 3):");
             }
-        } while (true);
+        }
     }
 
-    public static void confirmDelete() {
+    public static void confirmRemoveTeacher() {
         int choose = 0;
-        do {
+        while (true) {
             try {
-                System.out.println("Are You Sure Delete: \n" +
+                System.out.println("Are You Sure Remove Teacher: \n" +
                         "1. Yes: \n" +
                         "2. No: \n" +
                         "Choose Options: ");
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
+                        System.out.println("Remove Teacher: ");
+                        teacherService.remove();
                     case 2:
+                        System.out.println("Return Remove Menu: ");
+                        removeMenu();
+                        return;
                     default:
                         System.out.println("Error: Enter Again..(1 - 2):");
                 }
@@ -171,6 +206,33 @@ public class CodegymController {
                 e.printStackTrace();
                 System.out.println("Error: Incorrect Format..Enter Number (1 - 2):");
             }
-        } while (true);
+        }
+    }
+
+    public static void confirmRemoveStudent() {
+        int choose = 0;
+        while (true) {
+            try {
+                System.out.println("Are You Sure Remove Student: \n" +
+                        "1. Yes: \n" +
+                        "2. No: \n" +
+                        "Choose Options: ");
+                choose = Integer.parseInt(scanner.nextLine());
+                switch (choose) {
+                    case 1:
+                        System.out.println("Remove Student: ");
+                        studentService.remove();
+                    case 2:
+                        System.out.println("Return Remove Menu: ");
+                        removeMenu();
+                        return;
+                    default:
+                        System.out.println("Error: Enter Again..(1 - 2):");
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                System.out.println("Error: Incorrect Format..Enter Number (1 - 2):");
+            }
+        }
     }
 }

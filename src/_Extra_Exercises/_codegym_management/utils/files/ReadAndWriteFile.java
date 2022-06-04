@@ -11,7 +11,7 @@ import java.util.List;
 public class ReadAndWriteFile {
     public static void writeFile(String path, List<String> list) {
         File file = new File(path);
-        FileWriter fW = null;
+        FileWriter fW;
         BufferedWriter bW = null;
         try {
             fW = new FileWriter(file, false);
@@ -36,6 +36,7 @@ public class ReadAndWriteFile {
         for (Student item : students) {
             list.add(item.getInfo());
         }
+        writeFile(pathFile, list);
     }
 
     public static void writeTeacher(String pathFile, List<Teacher> teachers) {
@@ -43,6 +44,7 @@ public class ReadAndWriteFile {
         for (Teacher item : teachers) {
             list.add(item.getInfo());
         }
+        writeFile(pathFile, list);
     }
 
     public static List<String> readFile(String source) {

@@ -5,19 +5,19 @@ import _Extra_Exercises._codegym_management.services.service.TeacherService;
 import _Extra_Exercises._codegym_management.utils.files.ReadAndWriteFile;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class TeacherServiceImpl implements TeacherService {
-    static List<Teacher> teacherList = new ArrayList<>();
+    static List<Teacher> teachers = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     static final String PATH_SAVING = "src/_Extra_Exercises/_codegym_management/data/saving.csv";
 
     @Override
     public void add() {
-
-        teacherList = ReadAndWriteFile.readTeacher(PATH_SAVING);
+        teachers = ReadAndWriteFile.readTeacher(PATH_SAVING);
 
         System.out.println("Enter Id Teacher: ");
         String id = scanner.nextLine();
@@ -26,7 +26,8 @@ public class TeacherServiceImpl implements TeacherService {
         String name = scanner.nextLine();
 
         System.out.println("Enter Birth Teacher: ");
-        LocalDate birth = LocalDate.parse(scanner.nextLine());
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate birth = LocalDate.parse(scanner.nextLine(), dateTimeFormatter);
 
         System.out.println("Enter Gender Teacher: 1. Male; 2. Female; 3. Other Gender: ");
         String gender;
@@ -53,30 +54,63 @@ public class TeacherServiceImpl implements TeacherService {
         String specialize = scanner.nextLine();
 
         Teacher teacher = new Teacher(id, name, birth, gender, specialize);
-        teacherList.add(teacher);
+        teachers.add(teacher);
 
-        ReadAndWriteFile.writeTeacher(PATH_SAVING, teacherList);
-        System.out.println("Added Success.");
+        ReadAndWriteFile.writeTeacher(PATH_SAVING, teachers);
+        System.out.println("Added Teacher Success.");
     }
 
     @Override
     public void remove() {
+        teachers.clear();
+        teachers = ReadAndWriteFile.readTeacher(PATH_SAVING);
 
+        for (Teacher item : teachers) {
+            System.out.println(item);
+        }
+
+        System.out.println("Enter Id Teacher Want To Remove: ");
+        String id = scanner.nextLine();
+        boolean flag = false;
+        for (Teacher item : teachers) {
+            if (id.equals(item.getId())) {
+                teachers.remove(item);
+            } else {
+                flag = true;
+            }
+        }
+        if (flag) {
+            System.out.println("NOT found Id.");
+        }
     }
 
     @Override
     public void display() {
-
-        teacherList = ReadAndWriteFile.readTeacher(PATH_SAVING);
+        teachers.clear();
+        teachers = ReadAndWriteFile.readTeacher(PATH_SAVING);
 
         System.out.println("List Teacher: ");
-        for (Teacher item : teacherList) {
+        for (Teacher item : teachers) {
             System.out.println(item);
         }
     }
 
     @Override
     public void find() {
-
+        teachers.clear();
+        ReadAndWriteFile.writeTeacher(PATH_SAVING, teachers);
+        System.out.println("Enter Name Teacher Want Find: ");
+        String name = scanner.nextLine();
+        boolean flag = false;
+        for (Teacher item : teachers) {
+            if (name.contains(item.getName())) {
+                System.out.println(item);
+            } else {
+                flag = true;
+            }
+        }
+        if (flag) {
+            System.out.println("NOT found Name Teacher.");
+        }
     }
 }
