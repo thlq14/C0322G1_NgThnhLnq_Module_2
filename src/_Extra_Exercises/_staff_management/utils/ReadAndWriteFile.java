@@ -24,7 +24,6 @@ public class ReadAndWriteFile {
             e.printStackTrace();
         } finally {
             try {
-                assert bufferedWriter != null;
                 bufferedWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();

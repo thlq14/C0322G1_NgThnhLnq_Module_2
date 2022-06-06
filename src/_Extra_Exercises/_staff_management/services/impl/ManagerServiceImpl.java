@@ -3,6 +3,7 @@ package _Extra_Exercises._staff_management.services.impl;
 import _Extra_Exercises._staff_management.models.Manager;
 import _Extra_Exercises._staff_management.services.service.ManagerService;
 import _Extra_Exercises._staff_management.utils.ReadAndWriteFile;
+import _Extra_Exercises._staff_management.utils.Regex;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -57,10 +58,10 @@ public class ManagerServiceImpl implements ManagerService {
         String address = scanner.nextLine();
 
         System.out.println("Enter Basic Salary: ");
-        double basicSalary = Double.parseDouble(scanner.nextLine());
+        double basicSalary = Double.parseDouble(Regex.inputBasicSalary());
 
         System.out.println("Enter Coefficient Salary: ");
-        double coefficientSalary = Double.parseDouble(scanner.nextLine());
+        double coefficientSalary = Double.parseDouble(Regex.inputCoefficientSalary());
 
         Manager manager = new Manager(id, staffId, name, birth, address, basicSalary, coefficientSalary);
         managerList.add(manager);
@@ -86,6 +87,9 @@ public class ManagerServiceImpl implements ManagerService {
                 managerList.remove(i);
             }
         }
+
+        ReadAndWriteFile.writeManager(PATH_MANAGER, managerList);
+        System.out.println("Removed Manager Success.");
     }
 
     @Override

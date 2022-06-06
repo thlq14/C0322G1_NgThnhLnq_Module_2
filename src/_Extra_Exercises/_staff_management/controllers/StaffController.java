@@ -162,6 +162,7 @@ public class StaffController {
                     case 2:
                         System.out.println("Find Product: ");
                         findProduct();
+                        break;
                     case 3:
                         System.out.println("Return Main Menu: ");
                         displayMainMenu();

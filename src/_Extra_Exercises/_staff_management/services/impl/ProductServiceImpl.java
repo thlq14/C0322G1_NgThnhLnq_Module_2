@@ -3,6 +3,7 @@ package _Extra_Exercises._staff_management.services.impl;
 import _Extra_Exercises._staff_management.models.Product;
 import _Extra_Exercises._staff_management.services.service.ProductService;
 import _Extra_Exercises._staff_management.utils.ReadAndWriteFile;
+import _Extra_Exercises._staff_management.utils.Regex;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -56,11 +57,9 @@ public class ProductServiceImpl implements ProductService {
         System.out.println("Enter Address Product: ");
         String address = scanner.nextLine();
 
-        System.out.println("Enter Number Product: ");
-        double numberProduct = Double.parseDouble(scanner.nextLine());
+        double numberProduct = Double.parseDouble(Regex.inputNumberProduct());
 
-        System.out.println("Enter Price Product: ");
-        double priceProduct = Double.parseDouble(scanner.nextLine());
+        double priceProduct = Double.parseDouble(Regex.inputPriceProduct());
 
         Product product = new Product(id, staffId, name, birth, address, numberProduct, priceProduct);
         productList.add(product);
@@ -85,6 +84,8 @@ public class ProductServiceImpl implements ProductService {
                 productList.remove(i);
             }
         }
+        ReadAndWriteFile.writeProduct(PATH_PRODUCT, productList);
+        System.out.println("Removed Product Success.");
     }
 
     @Override

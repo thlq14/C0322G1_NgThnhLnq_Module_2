@@ -38,7 +38,9 @@ public class Product extends Staff {
 
     @Override
     public String getInfo() {
-        return null;
+        return String.format("%s,%s,%s,%s,%s,%s,%s",
+                super.getId(), super.getStaffId(), super.getName(), super.getBirth(), super.getAddress(),
+                this.getNumberProduct(), this.getPriceProduct());
     }
 
     @Override
