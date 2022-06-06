@@ -11,7 +11,7 @@ public class CodegymController {
     static StudentServiceImpl studentService = new StudentServiceImpl();
 
     public static void displayMainMenu() {
-        int choose = 0;
+        int choose;
         while (true) {
             try {
                 System.out.println("_____CodeGym Management_____\n" +
