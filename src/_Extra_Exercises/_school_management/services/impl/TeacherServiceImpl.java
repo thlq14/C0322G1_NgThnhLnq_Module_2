@@ -40,7 +40,7 @@ public class TeacherServiceImpl implements TeacherService {
         }
 
         System.out.println("Enter Name Teacher: ");
-        String name = scanner.nextLine();
+        String name = Regex.regexCheckNull();
 
         System.out.println("Enter Gender Teacher: 1. Male; 2. Female; 3. Other Genders.");
         String gender;
@@ -66,10 +66,10 @@ public class TeacherServiceImpl implements TeacherService {
         LocalDate birth = LocalDate.parse(Regex.inputAge(), dateTimeFormatter);
 
         System.out.println("Enter Address Teacher: ");
-        String address = scanner.nextLine();
+        String address = Regex.regexCheckNull();
 
         System.out.println("Enter Class Teacher: ");
-        String classTeach = scanner.nextLine();
+        String classTeach = Regex.regexCheckNull();
 
         System.out.println("Enter Salary Teacher: ");
         double salaryTeach = Double.parseDouble(Regex.inputInt());
@@ -106,7 +106,7 @@ public class TeacherServiceImpl implements TeacherService {
         for (int i = 0; i < teachers.size(); i++) {
             if (teachers.get(i).getId() == inputEdit) {
                 System.out.println("Enter Name Teacher: ");
-                String name = scanner.nextLine();
+                String name = Regex.regexCheckNull();
 
                 System.out.println("Enter Gender Teacher: 1. Male; 2. Female; 3. Other Genders.");
                 String gender;
@@ -133,10 +133,10 @@ public class TeacherServiceImpl implements TeacherService {
                 LocalDate birth = LocalDate.parse(Regex.inputAge(), dateTimeFormatter);
 
                 System.out.println("Enter Address Teacher: ");
-                String address = scanner.nextLine();
+                String address = Regex.regexCheckNull();
 
                 System.out.println("Enter Class Teacher: ");
-                String classTeach = scanner.nextLine();
+                String classTeach = Regex.regexCheckNull();
 
                 System.out.println("Enter Salary Teacher: ");
                 double salaryTeach = Double.parseDouble(Regex.inputInt());

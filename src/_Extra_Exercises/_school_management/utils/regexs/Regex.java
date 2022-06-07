@@ -1,9 +1,6 @@
 package _Extra_Exercises._school_management.utils.regexs;
 
-import _Extra_Exercises._school_management.exception.AgeException;
-import _Extra_Exercises._school_management.exception.InvalidIdStudent;
-import _Extra_Exercises._school_management.exception.InvalidIntegerException;
-import _Extra_Exercises._school_management.exception.InvalidPointException;
+import _Extra_Exercises._school_management.exception.*;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -69,6 +66,22 @@ public class Regex {
             }
         } while (check);
         return temp;
+    }
+
+    public static String regexCheckNull() {
+        String value;
+        while (true) {
+            try {
+                value = scanner.nextLine();
+                if (value.equals("")) {
+                    throw new NullPointedException("Error: Value Mustn't Null ..Enter Again: ");
+                }
+                break;
+            } catch (NullPointedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return value;
     }
 
     public static String regexAge(String temp, String regex) {

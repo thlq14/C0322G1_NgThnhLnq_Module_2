@@ -40,7 +40,7 @@ public class StudentServiceImpl implements StudentService {
             id = max + 1;
         }
         System.out.println("Enter Name Student: ");
-        String name = scanner.nextLine();
+        String name = Regex.regexCheckNull();
 
         System.out.println("Enter Gender Student: 1. Male; 2. Female; 3. Other Genders.");
         String gender;
@@ -66,7 +66,7 @@ public class StudentServiceImpl implements StudentService {
         LocalDate birth = LocalDate.parse(Regex.inputAge(), dateTimeFormatter);
 
         System.out.println("Enter Address Student: ");
-        String address = scanner.nextLine();
+        String address = Regex.regexCheckNull();
 
         System.out.println("Enter Id Student: ");
         String studentId;
@@ -115,7 +115,7 @@ public class StudentServiceImpl implements StudentService {
         for (int i = 0; i < students.size(); i++) {
             if (students.get(i).getId() == inputEdit) {
                 System.out.println("Enter Name Student: ");
-                String name = scanner.nextLine();
+                String name = Regex.regexCheckNull();
 
                 System.out.println("Enter Gender Student: 1. Male; 2. Female; 3. Other Genders.");
                 String gender;
@@ -142,7 +142,7 @@ public class StudentServiceImpl implements StudentService {
                 LocalDate birth = LocalDate.parse(Regex.inputAge(), dateTimeFormatter);
 
                 System.out.println("Enter Address Student: ");
-                String address = scanner.nextLine();
+                String address = Regex.regexCheckNull();
 
                 System.out.println("Enter Id Student: ");
                 String studentId;
