@@ -114,6 +114,7 @@ public class ManagerServiceImpl implements ManagerService {
                 System.out.println("Staff Id Doesn't Exist.");
             }
         }
+        ReadAndWriteFile.writeStaff(PATH_STAFF, list);
     }
 
     @Override
