@@ -1,4 +1,4 @@
-package _Extra_Exercises._school_management.services.service;
+package _Extra_Exercises._school_management.services;
 
 public interface PersonService {
     void add();

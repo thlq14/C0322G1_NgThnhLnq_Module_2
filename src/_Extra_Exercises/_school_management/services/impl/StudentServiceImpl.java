@@ -2,11 +2,11 @@ package _Extra_Exercises._school_management.services.impl;
 
 import _Extra_Exercises._school_management.controllers.PersonController;
 import _Extra_Exercises._school_management.models.Student;
-import _Extra_Exercises._school_management.services.service.StudentService;
-import _Extra_Exercises._school_management.utils.sorts.SortByBirthDecrease;
-import _Extra_Exercises._school_management.utils.sorts.SortByNameIncrease;
+import _Extra_Exercises._school_management.services.StudentService;
 import _Extra_Exercises._school_management.utils.files.ReadAndWriteFile;
 import _Extra_Exercises._school_management.utils.regexs.Regex;
+import _Extra_Exercises._school_management.utils.sorts.SortByBirthDecrease;
+import _Extra_Exercises._school_management.utils.sorts.SortByNameIncrease;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
