@@ -38,15 +38,15 @@ public class Product extends Staff {
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s,%s",
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",
                 super.getId(), super.getStaffId(), super.getName(), super.getBirth(), super.getAddress(),
-                this.getNumberProduct(), this.getPriceProduct());
+                this.getNumberProduct(), this.getPriceProduct(), "Product");
     }
 
     @Override
     public String toString() {
         return "Product {" + super.toString() +
-                "numberProduct = " + numberProduct +
+                "', numberProduct = " + numberProduct +
                 ", priceProduct = " + priceProduct +
                 '}';
     }

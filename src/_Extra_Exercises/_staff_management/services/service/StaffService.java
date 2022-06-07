@@ -7,11 +7,5 @@ public interface StaffService {
 
     void remove();
 
-    void findByStaffId();
-
-    void findByName();
-
-    void findByBirth();
-
-    void findByAddress();
+    void find();
 }

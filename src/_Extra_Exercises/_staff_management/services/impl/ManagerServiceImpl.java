@@ -1,6 +1,9 @@
 package _Extra_Exercises._staff_management.services.impl;
 
+import _Extra_Exercises._staff_management.controllers.StaffController;
+import _Extra_Exercises._staff_management.exception.NotFoundEmployeeException;
 import _Extra_Exercises._staff_management.models.Manager;
+import _Extra_Exercises._staff_management.models.Staff;
 import _Extra_Exercises._staff_management.services.service.ManagerService;
 import _Extra_Exercises._staff_management.utils.ReadAndWriteFile;
 import _Extra_Exercises._staff_management.utils.Regex;
@@ -12,33 +15,35 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ManagerServiceImpl implements ManagerService {
-    private static Scanner scanner = new Scanner(System.in);
-    private static List<Manager> managerList = new ArrayList<>();
-    private static final String PATH_MANAGER = "src/_Extra_Exercises/_staff_management/data/manager.csv";
+    static Scanner scanner = new Scanner(System.in);
+    static List<Manager> managers = new ArrayList<>();
+    static List<Staff> list = new ArrayList<>();
+    static final String PATH_STAFF = "src/_Extra_Exercises/_staff_management/data/staff.csv";
 
     @Override
     public void display() {
-        managerList = ReadAndWriteFile.readManager(PATH_MANAGER);
+        managers.clear();
+        ReadAndWriteFile.readManager(PATH_STAFF, managers);
 
         System.out.println("List Manager: ");
-        for (Manager item : managerList) {
+        for (Manager item : managers) {
             System.out.println(item);
         }
     }
 
     @Override
     public void add() {
-        managerList.clear();
-        managerList = ReadAndWriteFile.readManager(PATH_MANAGER);
+        list.clear();
+        ReadAndWriteFile.readStaff(PATH_STAFF, list);
 
         int id = 0;
         int max = 0;
-        if (managerList.isEmpty()) {
+        if (list.isEmpty()) {
             id = 1;
         } else {
-            for (int i = 0; i < managerList.size(); i++) {
-                if (managerList.get(i).getId() > max) {
-                    max = managerList.get(i).getId();
+            for (Staff staff : list) {
+                if (staff.getId() > max) {
+                    max = staff.getId();
                 }
             }
             id = max + 1;
@@ -64,43 +69,64 @@ public class ManagerServiceImpl implements ManagerService {
         double coefficientSalary = Double.parseDouble(Regex.inputCoefficientSalary());
 
         Manager manager = new Manager(id, staffId, name, birth, address, basicSalary, coefficientSalary);
-        managerList.add(manager);
+        list.add(manager);
 
-        ReadAndWriteFile.writeManager(PATH_MANAGER, managerList);
+        ReadAndWriteFile.writeStaff(PATH_STAFF, list);
         System.out.println("Added Manager Success.");
     }
 
-
     @Override
     public void remove() {
-        managerList.clear();
-        managerList = ReadAndWriteFile.readManager(PATH_MANAGER);
+        list.clear();
+        ReadAndWriteFile.readStaff(PATH_STAFF, list);
 
-        for (Manager item : managerList) {
-            System.out.println(item);
+        for (Manager item : managers) {
+            if (item != null) {
+                System.out.println(item);
+            }
         }
 
         System.out.println("Enter Id Manager Want Remove: ");
         String staffId = scanner.nextLine();
-        for (int i = 0; i < managerList.size(); i++) {
-            if (staffId.equals(managerList.get(i).getStaffId())) {
-                managerList.remove(i);
+        int choose;
+        for (int i = 0; i < list.size(); i++) {
+            try {
+                if (staffId.equals(list.get(i).getStaffId())) {
+                    System.out.println("Are You Want To Remove: \n" +
+                            "1. Yes.\n" +
+                            "2. No.\n" +
+                            "Choose Option: ");
+                    choose = Integer.parseInt(scanner.nextLine());
+                    switch (choose) {
+                        case 1:
+                            list.remove(i);
+                            System.out.println("Removed Manager Success.");
+                            break;
+                        case 2:
+                            StaffController.displayMainMenu();
+                            break;
+                        default:
+                            System.err.println("Error: Enter Again (1 - 2):");
+                            throw new NotFoundEmployeeException("Error: Incorrect Format..Enter Again: ");
+                    }
+                }
+            } catch (NotFoundEmployeeException e) {
+                System.out.println("Staff Id Doesn't Exist.");
             }
         }
-
-        ReadAndWriteFile.writeManager(PATH_MANAGER, managerList);
-        System.out.println("Removed Manager Success.");
     }
 
     @Override
-    public void findByStaffId() {
-        managerList = ReadAndWriteFile.readManager(PATH_MANAGER);
-        managerList.clear();
+    public void find() {
+        ReadAndWriteFile.readManager(PATH_STAFF, managers);
+        managers.clear();
 
-        String findStaffId = scanner.nextLine();
+        System.out.println("Enter Want Find: ");
+        String findStaff = scanner.nextLine();
         boolean flag = false;
-        for (Manager item : managerList) {
-            if (findStaffId.contains(item.getStaffId())) {
+        for (Manager item : managers) {
+            if (findStaff.contains(item.getStaffId()) || findStaff.contains(item.getName())
+                    || findStaff.contains(item.getBirth().toString()) || findStaff.contains(item.getAddress())) {
                 System.out.println(item);
             } else {
                 flag = true;
@@ -108,63 +134,6 @@ public class ManagerServiceImpl implements ManagerService {
         }
         if (flag) {
             System.err.println("NOT found Staff Id.");
-        }
-    }
-
-    @Override
-    public void findByName() {
-        managerList.clear();
-        managerList = ReadAndWriteFile.readManager(PATH_MANAGER);
-
-        String findName = scanner.nextLine();
-        boolean flag = false;
-        for (Manager item : managerList) {
-            if (findName.contains(item.getName())) {
-                System.out.println(item);
-            } else {
-                flag = true;
-            }
-        }
-        if (flag) {
-            System.err.println("NOT found Name Manager.");
-        }
-    }
-
-    @Override
-    public void findByBirth() {
-        managerList.clear();
-        managerList = ReadAndWriteFile.readManager(PATH_MANAGER);
-
-        LocalDate findBirth = LocalDate.parse(scanner.nextLine());
-        boolean flag = false;
-        for (Manager item : managerList) {
-            if (findBirth.equals(item.getBirth())) {
-                System.out.println(item);
-            } else {
-                flag = true;
-            }
-        }
-        if (flag) {
-            System.err.println("NOT found Birth.");
-        }
-    }
-
-    @Override
-    public void findByAddress() {
-        managerList.clear();
-        managerList = ReadAndWriteFile.readManager(PATH_MANAGER);
-
-        String findAddress = scanner.nextLine();
-        boolean flag = false;
-        for (Manager item : managerList) {
-            if (findAddress.contains(item.getAddress())) {
-                System.out.println(item);
-            } else {
-                flag = true;
-            }
-        }
-        if (flag) {
-            System.err.println("NOT found Address.");
         }
     }
 }

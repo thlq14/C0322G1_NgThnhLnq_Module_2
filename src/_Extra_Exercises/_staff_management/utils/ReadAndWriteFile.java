@@ -2,6 +2,7 @@ package _Extra_Exercises._staff_management.utils;
 
 import _Extra_Exercises._staff_management.models.Manager;
 import _Extra_Exercises._staff_management.models.Product;
+import _Extra_Exercises._staff_management.models.Staff;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -9,17 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteFile {
-    public static void writeFile(String source, List<String> list) {
+    public static void writeFile(String source, String list) {
         File file = new File(source);
-        FileWriter fileWriter;
+        FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
             fileWriter = new FileWriter(file, false);
             bufferedWriter = new BufferedWriter(fileWriter);
-            for (String item : list) {
-                bufferedWriter.write(item);
-                bufferedWriter.newLine();
-            }
+            bufferedWriter.write(list);
+            bufferedWriter.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -31,30 +30,27 @@ public class ReadAndWriteFile {
         }
     }
 
-    public static void writeManager(String pathFile, List<Manager> managers) {
+    public static void writeStaff(String path, List<Staff> staff) {
         List<String> list = new ArrayList<>();
-        for (Manager item : managers) {
+        for (Staff item : staff) {
             list.add(item.getInfo());
         }
-        writeFile(pathFile, list);
-    }
-
-    public static void writeProduct(String pathFile, List<Product> products) {
-        List<String> list = new ArrayList<>();
-        for (Product item : products) {
-            list.add(item.getInfo());
+        String staffStr = "";
+        for (String item : list) {
+            staffStr += item + "\n";
         }
-        writeFile(pathFile, list);
+        writeFile(path, staffStr);
     }
 
-    public static List<String> readFile(String source) {
+    public static List<String[]> readFile(String source) {
         File file = new File(source);
-        List<String> list = new ArrayList<>();
+        List<String[]> list = new ArrayList<>();
         String line;
         try (FileReader fileReader = new FileReader(file)) {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
-                list.add(line);
+                String[] arr = line.split(",");
+                list.add(arr);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,25 +58,32 @@ public class ReadAndWriteFile {
         return list;
     }
 
-    public static List<Manager> readManager(String path) {
-        List<String> list = readFile(path);
-        List<Manager> managers = new ArrayList<>();
-        String[] item;
-        for (String arr : list) {
-            item = arr.split(",");
-            managers.add(new Manager(Integer.parseInt(item[0]), item[1], item[2], LocalDate.parse(item[3]), item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
+    public static void readStaff(String path, List<Staff> staff) {
+        List<String[]> list = readFile(path);
+        for (String[] item : list) {
+            if (item[7].equals("Manager")) {
+                staff.add(new Manager(Integer.parseInt(item[0]), item[1], item[2], LocalDate.parse(item[3]), item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
+            } else {
+                staff.add(new Product(Integer.parseInt(item[0]), item[1], item[2], LocalDate.parse(item[3]), item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
+            }
         }
-        return managers;
     }
 
-    public static List<Product> readProduct(String path) {
-        List<String> list = readFile(path);
-        List<Product> products = new ArrayList<>();
-        String[] item;
-        for (String arr : list) {
-            item = arr.split(",");
-            products.add(new Product(Integer.parseInt(item[0]), item[1], item[2], LocalDate.parse(item[3]), item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
+    public static void readManager(String path, List<Manager> managers) {
+        List<String[]> list = readFile(path);
+        for (String[] item : list) {
+            if (item[7].equals("Manager")) {
+                managers.add(new Manager(Integer.parseInt(item[0]), item[1], item[2], LocalDate.parse(item[3]), item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
+            }
         }
-        return products;
+    }
+
+    public static void readProduct(String path, List<Product> products) {
+        List<String[]> list = readFile(path);
+        for (String[] item : list) {
+            if (item[7].equals("Product")) {
+                products.add(new Product(Integer.parseInt(item[0]), item[1], item[2], LocalDate.parse(item[3]), item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
+            }
+        }
     }
 }

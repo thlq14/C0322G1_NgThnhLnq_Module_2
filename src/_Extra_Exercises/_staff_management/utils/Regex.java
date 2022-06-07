@@ -10,8 +10,9 @@ import java.util.regex.Pattern;
 
 public class Regex {
     public static Scanner scanner = new Scanner(System.in);
-    private static final String REGEX_INT = "^[1-9]{0,}$";
-
+    public static final String REGEX_INT = "^[1-9][0-9]*$";
+    public static final String REGEX_MANAGER = "^MNG-[0-9]{4}$";
+    public static final String REGEX_PRODUCT = "^PRD-[0-9]{4}$";
 
     public static String regexBasicSalary(String regex) {
         boolean check = true;
@@ -85,6 +86,24 @@ public class Regex {
         return temp;
     }
 
+    public static String regexNotFoundException(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new NotFoundEmployeeException("Error: Staff Id Doesn't Exist..Enter Again: ");
+                }
+            } catch (NotFoundEmployeeException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
+    }
+
     public static String regexAge(String temp, String regex) {
         boolean check = true;
         while (check) {
@@ -94,10 +113,10 @@ public class Regex {
                     LocalDate age = LocalDate.parse(temp, dateTimeFormatter);
                     LocalDate now = LocalDate.now();
                     int current = Period.between(age, now).getYears();
-                    if (current < 100 && current > 18) {
+                    if (current > 18) {
                         check = false;
                     } else {
-                        throw new AgeException("Age Must > 18 and < 100.");
+                        throw new AgeException("Age Must > 18.");
                     }
                 } else {
                     throw new AgeException("Incorrect Format.. Enter Again: ");

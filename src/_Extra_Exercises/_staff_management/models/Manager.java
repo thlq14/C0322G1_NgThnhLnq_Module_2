@@ -38,15 +38,15 @@ public class Manager extends Staff {
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s,%s",
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",
                 super.getId(), super.getStaffId(), super.getName(), super.getBirth(), super.getAddress(),
-                this.getBasicSalary(), this.getCoefficientSalary());
+                this.getBasicSalary(), this.getCoefficientSalary(), "Manager");
     }
 
     @Override
     public String toString() {
         return "Manager {" + super.toString() +
-                "basicSalary = " + basicSalary +
+                "', basicSalary = " + basicSalary +
                 ", coefficientSalary = " + coefficientSalary +
                 '}';
     }

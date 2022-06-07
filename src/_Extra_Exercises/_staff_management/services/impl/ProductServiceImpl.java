@@ -1,6 +1,9 @@
 package _Extra_Exercises._staff_management.services.impl;
 
+import _Extra_Exercises._staff_management.controllers.StaffController;
+import _Extra_Exercises._staff_management.exception.NotFoundEmployeeException;
 import _Extra_Exercises._staff_management.models.Product;
+import _Extra_Exercises._staff_management.models.Staff;
 import _Extra_Exercises._staff_management.services.service.ProductService;
 import _Extra_Exercises._staff_management.utils.ReadAndWriteFile;
 import _Extra_Exercises._staff_management.utils.Regex;
@@ -13,32 +16,34 @@ import java.util.Scanner;
 
 public class ProductServiceImpl implements ProductService {
     static Scanner scanner = new Scanner(System.in);
-    static List<Product> productList = new ArrayList<>();
-    private static final String PATH_PRODUCT = "src/_Extra_Exercises/_staff_management/data/product.csv";
+    static List<Product> products = new ArrayList<>();
+    static List<Staff> list = new ArrayList<>();
+    private static final String PATH_STAFF = "src/_Extra_Exercises/_staff_management/data/staff.csv";
 
     @Override
     public void display() {
-        productList = ReadAndWriteFile.readProduct(PATH_PRODUCT);
+        products.clear();
+        ReadAndWriteFile.readProduct(PATH_STAFF, products);
 
         System.out.println("List Product: ");
-        for (Product item : productList) {
+        for (Product item : products) {
             System.out.println(item);
         }
     }
 
     @Override
     public void add() {
-        productList.clear();
-        productList = ReadAndWriteFile.readProduct(PATH_PRODUCT);
+        list.clear();
+        ReadAndWriteFile.readStaff(PATH_STAFF, list);
 
         int id = 0;
         int max = 0;
-        if (productList.isEmpty()) {
+        if (list.isEmpty()) {
             id = 1;
         } else {
-            for (int i = 0; i < productList.size(); i++) {
-                if (productList.get(i).getId() > max) {
-                    max = productList.get(i).getId();
+            for (Staff staff : list) {
+                if (staff.getId() > max) {
+                    max = staff.getId();
                 }
             }
             id = max + 1;
@@ -57,46 +62,71 @@ public class ProductServiceImpl implements ProductService {
         System.out.println("Enter Address Product: ");
         String address = scanner.nextLine();
 
+        System.out.println("Enter Number Product: ");
         double numberProduct = Double.parseDouble(Regex.inputNumberProduct());
 
+        System.out.println("Enter Price Product: ");
         double priceProduct = Double.parseDouble(Regex.inputPriceProduct());
 
         Product product = new Product(id, staffId, name, birth, address, numberProduct, priceProduct);
-        productList.add(product);
+        list.add(product);
 
-        ReadAndWriteFile.writeProduct(PATH_PRODUCT, productList);
+        ReadAndWriteFile.writeStaff(PATH_STAFF, list);
         System.out.println("Added Product Success.");
     }
 
     @Override
     public void remove() {
-        productList.clear();
-        productList = ReadAndWriteFile.readProduct(PATH_PRODUCT);
+        list.clear();
+        ReadAndWriteFile.readStaff(PATH_STAFF, list);
 
-        for (Product item : productList) {
-            System.out.println(item);
-        }
-
-        System.out.println("Enter Id Product Want Remove: ");
-        String staffId = scanner.nextLine();
-        for (int i = 0; i < productList.size(); i++) {
-            if (staffId.equals(productList.get(i).getStaffId())) {
-                productList.remove(i);
+        for (Product item : products) {
+            if (item != null) {
+                System.out.println(item);
             }
         }
-        ReadAndWriteFile.writeProduct(PATH_PRODUCT, productList);
-        System.out.println("Removed Product Success.");
+
+        System.out.println("Enter Id Manager Want Remove: ");
+        String staffId = scanner.nextLine();
+        int choose;
+        for (int i = 0; i < list.size(); i++) {
+            try {
+                if (staffId.equals(list.get(i).getStaffId())) {
+                    System.out.println("Are You Want To Remove: \n" +
+                            "1. Yes.\n" +
+                            "2. No.\n" +
+                            "Choose Option: ");
+                    choose = Integer.parseInt(scanner.nextLine());
+                    switch (choose) {
+                        case 1:
+                            list.remove(i);
+                            System.out.println("Removed Manager Success.");
+                            break;
+                        case 2:
+                            StaffController.displayMainMenu();
+                            break;
+                        default:
+                            System.err.println("Error: Enter Again (1 - 2):");
+                            throw new NotFoundEmployeeException("Error: Incorrect Format..Enter Again: ");
+                    }
+                }
+            } catch (NotFoundEmployeeException e) {
+                System.out.println("Staff Id Doesn't Exist.");
+            }
+        }
+        ReadAndWriteFile.writeStaff(PATH_STAFF, list);
     }
 
     @Override
-    public void findByStaffId() {
-        productList = ReadAndWriteFile.readProduct(PATH_PRODUCT);
-        productList.clear();
-
-        String findStaffId = scanner.nextLine();
+    public void find() {
+        ReadAndWriteFile.readProduct(PATH_STAFF, products);
+        products.clear();
+        System.out.println("Enter Want Find: ");
+        String findStaff = scanner.nextLine();
         boolean flag = false;
-        for (Product item : productList) {
-            if (findStaffId.contains(item.getStaffId())) {
+        for (Product item : products) {
+            if (findStaff.contains(item.getStaffId()) || findStaff.contains(item.getName())
+                    || findStaff.contains(item.getBirth().toString()) || findStaff.contains(item.getAddress())) {
                 System.out.println(item);
             } else {
                 flag = true;
@@ -104,63 +134,6 @@ public class ProductServiceImpl implements ProductService {
         }
         if (flag) {
             System.err.println("NOT found Staff Id.");
-        }
-    }
-
-    @Override
-    public void findByName() {
-        productList.clear();
-        productList = ReadAndWriteFile.readProduct(PATH_PRODUCT);
-
-        String findName = scanner.nextLine();
-        boolean flag = false;
-        for (Product item : productList) {
-            if (findName.contains(item.getName())) {
-                System.out.println(item);
-            } else {
-                flag = true;
-            }
-        }
-        if (flag) {
-            System.err.println("NOT found Name Product.");
-        }
-    }
-
-    @Override
-    public void findByBirth() {
-        productList.clear();
-        productList = ReadAndWriteFile.readProduct(PATH_PRODUCT);
-
-        LocalDate findBirth = LocalDate.parse(scanner.nextLine());
-        boolean flag = false;
-        for (Product item : productList) {
-            if (findBirth.equals(item.getBirth())) {
-                System.out.println(item);
-            } else {
-                flag = true;
-            }
-        }
-        if (flag) {
-            System.err.println("NOT found Birth.");
-        }
-    }
-
-    @Override
-    public void findByAddress() {
-        productList.clear();
-        productList = ReadAndWriteFile.readProduct(PATH_PRODUCT);
-
-        String findAddress = scanner.nextLine();
-        boolean flag = false;
-        for (Product item : productList) {
-            if (findAddress.contains(item.getAddress())) {
-                System.out.println(item);
-            } else {
-                flag = true;
-            }
-        }
-        if (flag) {
-            System.err.println("NOT found Address.");
         }
     }
 }

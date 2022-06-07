@@ -15,10 +15,10 @@ public class StaffController {
         while (true) {
             try {
                 System.out.println("_____Staff Manager_____\n" +
-                        "1. Display List.\n" +
-                        "2. Add.\n" +
-                        "3. Remove.\n" +
-                        "4. Find.\n" +
+                        "1. Display List Staff.\n" +
+                        "2. Add Staff.\n" +
+                        "3. Remove Staff.\n" +
+                        "4. Find Staff.\n" +
                         "5. Exit.\n" +
                         "Choose Option: ");
                 choose = Integer.parseInt(scanner.nextLine());
@@ -51,9 +51,10 @@ public class StaffController {
         while (true) {
             try {
                 System.out.println("_____Display List_____\n" +
-                        "1. Manager List.\n" +
-                        "2. Product List.\n" +
-                        "3. Return Menu.\n" +
+                        "1. Display Manager List.\n" +
+                        "2. Display Product List.\n" +
+                        "3. Display List All.\n" +
+                        "4. Return Menu.\n" +
                         "Choose Option: ");
                 choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
@@ -66,6 +67,11 @@ public class StaffController {
                         productService.display();
                         break;
                     case 3:
+                        System.out.println("All List: ");
+                        managerService.display();
+                        productService.display();
+                        break;
+                    case 4:
                         System.out.println("Return Main Menu: ");
                         displayMainMenu();
                         return;
@@ -124,12 +130,10 @@ public class StaffController {
                     case 1:
                         System.out.println("Remove Manager: ");
                         managerService.remove();
-                        confirmManagerMenu();
                         break;
                     case 2:
                         System.out.println("Remove Product: ");
                         productService.remove();
-                        confirmProductMenu();
                         break;
                     case 3:
                         System.out.println("Return Main Menu: ");
@@ -157,11 +161,11 @@ public class StaffController {
                 switch (choose) {
                     case 1:
                         System.out.println("Find Manager: ");
-                        findManager();
+                        managerService.find();
                         break;
                     case 2:
                         System.out.println("Find Product: ");
-                        findProduct();
+                        productService.find();
                         break;
                     case 3:
                         System.out.println("Return Main Menu: ");
@@ -175,128 +179,17 @@ public class StaffController {
             }
         }
     }
-
-    public static void confirmManagerMenu() {
-        int choose;
-        while (true) {
-            try {
-                System.out.println("Are You Want Remove: \n" +
-                        "1. Yes.\n" +
-                        "2. No.\n" +
-                        "Choose Option: ");
-                choose = Integer.parseInt(scanner.nextLine());
-                switch (choose) {
-                    case 1:
-                        managerService.remove();
-                        break;
-                    case 2:
-                        removeMenu();
-                        return;
-                    default:
-                        System.err.println("Error: Enter Again (1 - 2): ");
-                }
-            } catch (NumberFormatException e) {
-                System.err.println("Enter Incorrect Format.. Enter Again: ");
-            }
-        }
-    }
-
-    public static void confirmProductMenu() {
-        int choose;
-        while (true) {
-            try {
-                System.out.println("Are You Want Remove: \n" +
-                        "1. Yes.\n" +
-                        "2. No.\n" +
-                        "Choose Option: ");
-                choose = Integer.parseInt(scanner.nextLine());
-                switch (choose) {
-                    case 1:
-                        productService.remove();
-                        break;
-                    case 2:
-                        removeMenu();
-                        return;
-                    default:
-                        System.err.println("Error: Enter Again (1 - 2): ");
-                }
-            } catch (NumberFormatException e) {
-                System.err.println("Enter Incorrect Format.. Enter Again: ");
-            }
-        }
-    }
-
-    public static void findManager() {
-        int choose;
-        while (true) {
-            try {
-                System.out.println("_____Find Manager_____\n" +
-                        "1. Find By Staff Id.\n" +
-                        "2. Find By Name Manager.\n" +
-                        "3. Find By Birth Manager.\n" +
-                        "4. Find By Address Manager.\n" +
-                        "5. Return Menu.\n" +
-                        "Choose Option: ");
-                choose = Integer.parseInt(scanner.nextLine());
-                switch (choose) {
-                    case 1:
-                        managerService.findByStaffId();
-                        break;
-                    case 2:
-                        managerService.findByName();
-                        break;
-                    case 3:
-                        managerService.findByBirth();
-                        break;
-                    case 4:
-                        managerService.findByAddress();
-                        break;
-                    case 5:
-                        findMenu();
-                        return;
-                    default:
-                        System.err.println("Error: Enter Again (1 - 5): ");
-                }
-            } catch (NumberFormatException e) {
-                System.err.println("Enter Incorrect Format.. Enter Again: ");
-            }
-        }
-    }
-
-    public static void findProduct() {
-        int choose;
-        while (true) {
-            try {
-                System.out.println("_____Find Product_____\n" +
-                        "1. Find By Staff Id.\n" +
-                        "2. Find By Name Product.\n" +
-                        "3. Find By Birth Product.\n" +
-                        "4. Find By Address Product.\n" +
-                        "5. Return Menu.\n" +
-                        "Choose Option: ");
-                choose = Integer.parseInt(scanner.nextLine());
-                switch (choose) {
-                    case 1:
-                        productService.findByStaffId();
-                        break;
-                    case 2:
-                        productService.findByName();
-                        break;
-                    case 3:
-                        productService.findByBirth();
-                        break;
-                    case 4:
-                        productService.findByAddress();
-                        break;
-                    case 5:
-                        findMenu();
-                        return;
-                    default:
-                        System.err.println("Error: Enter Again (1 - 5): ");
-                }
-            } catch (NumberFormatException e) {
-                System.err.println("Enter Incorrect Format.. Enter Again: ");
-            }
-        }
-    }
 }
+//    public static int checkException(int choose) {
+//        boolean flag = false;
+//        do {
+//            try {
+//                choose = Integer.parseInt(scanner.nextLine());
+//                flag = false;
+//            } catch (NumberFormatException e) {
+//                System.err.println("Enter Incorrect Format.. Enter Again: ");
+//                flag = true;
+//            }
+//        } while (false);
+//        return choose;
+//    }
